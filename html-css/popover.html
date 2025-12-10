@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popover</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #2d2d2d;
+      }
+
+      .odd {
+        position: relative;
+      }
+
+      .odd input {
+        outline: none;
+        padding: 10px;
+        width: 400px;
+        border-radius: 6px;
+        border: none;
+        outline: 2px solid rgb(4, 113, 147);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.1rem;
+      }
+
+      .odd input:focus {
+        outline: 2px solid cyan;
+      }
+
+      .odd .indice {
+        position: absolute;
+        right: 0;
+        top: -70%;
+        color: #05d2f7;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 1.05rem;
+        padding: 2px;
+      }
+
+      [popover] {
+        /* End styles for the closing transition. */
+        transform: translateY(50px);
+        opacity: 0;
+
+        /*  Enumerate transitioning properties, including display and overlay. */
+        transition: transform, opacity, display allow-discrete, overlay allow-discrete;
+        transition-duration: 0.5s;
+
+        position-area: top;
+        margin: initial;
+        transform-origin: top right;
+     }
+
+     .box {
+        width: 300px;
+        padding: 12px;
+        background-color: cyan;
+        border: none;
+        border-radius: 6px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+     }
+
+     /*  Opened styles  */
+     [popover]:popover-open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+
+            /*  Start styles for the opening transition.
+                Added to :popover-open, but after the opened styles.
+            */
+            @starting-style {
+                transform: translateY(100%) scale(0.5);
+                opacity: 0;
+            }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="odd">
+      <div>
+        <button class="indice" popovertarget="odd-recommendation" title="Click here to see the recommendations">🛈</button>
+      </div>
+      <input type="number" placeholder="placeholder" />
+      <div popover id="odd-recommendation" class="box">
+        We only accept odd number as value for this field else it will be invalid and not accepted
+      </div>
+    </div>
+  </body>
+</html>

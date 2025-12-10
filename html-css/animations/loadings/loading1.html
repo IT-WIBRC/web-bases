@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading- Circles</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            background-color: #151515;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            display: -ms-inline-grid;
+        }
+
+        .container div {
+            background-color: #fff;
+            width: 100px;
+            border-radius: 50%;
+            aspect-ratio: 1;
+            offset: circle(0px) 0% 0deg;
+            offset-path: circle(120px);
+            animation: move 1.3s infinite ease;
+            transform: scale(0);
+
+            @starting-style {
+                offset: circle(0px) 0% 0deg;
+            }
+        }
+
+        @keyframes move {
+            80% {
+                offset-distance: calc(100% * sibling-index()/sibling-count());
+                /* offset-distance: calc(100% * sibling-index()/sibling-count()) 0deg; */ /*For another one and commenting the previous one*/
+                transform: scale(1);
+            }
+
+            90% {
+                offset-distance: calc(2 * 100% * sibling-index()/sibling-count());
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+    </div>
+</body>
+</html>

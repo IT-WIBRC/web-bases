@@ -1,0 +1,212 @@
+ @import url('https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=TASA+Orbiter:wght@400..800&display=swap');
+
+:root {
+    --primary: 239, 141, 13;
+    --width: 450px;
+    --height: 450px;
+}
+/*
+ * 02 challenge a resoudre
+ * Shadow a gauche et droite et pas au centre
+ * Un bourdure arrondit de maniere inverse pour la fleche qui pointe sure le `learn more`
+ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "TASA Orbiter", sans-serif;
+    font-optical-sizing: auto;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cfcdcd;
+}
+
+.card__wrapper {
+    position: relative;
+}
+
+.card__wrapper::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 50px;
+    bottom: 15px;
+    left: 18%;
+    background: rgba(0, 0, 0, .3);
+    transform-origin: left;
+    transform: skewY(5deg);
+    filter: blur(5px);
+}
+
+.card__wrapper::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 50px;
+    bottom: 15px;
+    right: 18%;
+    background: rgba(0, 0, 0, .3);
+    transform-origin: right;
+    transform: skewY(-5deg);
+    filter: blur(5px);
+}
+
+.card {
+    background-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card::before {
+    --c-xy: 20%;
+    position: absolute;
+    content: "";
+    height: var(--c-xy);
+    width: var(--c-xy);
+    border-radius: 50%;
+    border: 13px solid rgb(222, 222, 222);
+    right: -10%;
+    top: calc(var(--c-xy) / 2  * -1);
+}
+
+.card::after {
+    --c-xy: 20%;
+    position: absolute;
+    content: "";
+    height: var(--c-xy);
+    width: var(--c-xy);
+    border-radius: 50%;
+    border: 13px solid rgb(222, 222, 222);
+    left: -10%;
+    bottom: calc(var(--c-xy) / 2  * -1);
+}
+
+.card .card__header h3 {
+    font-family: "Playwrite NO", cursive;
+    font-weight: 900;
+    color: rgba(var(--primary), 0.6);
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.card .card__header h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.card .card__content {
+    margin-top: 50px;
+    position: relative;
+    padding: 0 7%;
+    height: 70%;
+    position: relative;
+    z-index: 1;
+}
+
+.card .card__content::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    top: 25%;
+    height: 32%;
+    background-color: rgba(var(--primary), 0.8);
+    z-index: -1;
+}
+
+.card .card__content .card__body {
+    background-color: #3e3e3e;
+    border-radius: 30px;
+    padding: 0.9rem 1.4rem;
+    color: white;
+    position: relative;
+}
+
+.card .card__content .card__body::after {
+    --border-width: 120px;
+    --border-height: calc(var(--border-width) / 2 * 1.4);
+    position: absolute;
+    content: "";
+    right: calc(50% - var(--border-width) / 2);
+    height: var(--border-height);
+    width: var(--border-width);
+    clip-path: path("M 0,0 L 120,0 L 60,84 Z");
+    background-color: #3e3e3e;
+    z-index: -1;
+}
+
+.card .card__content .card__body .testimony {
+    font-size: .77rem;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.card .card__content .card__body .testimony q {
+    quotes: '\275D' '\275E';
+}
+
+.card .card__content .card__body .card__profile {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0 6px;
+    position: relative;
+}
+
+.card .card__content .card__body .card__profile .card__image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid rgb(var(--primary));
+    position: absolute;
+    left: 3%;
+    top: -90%;
+}
+
+.card .card__content .card__body .card__profile .card__user {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.card .card__content .card__body .card__profile .card__user .card__user__name {
+    text-transform: uppercase;
+}
+
+.card .card__content .card__body .card__profile .card__user .card__user__role {
+    font-size: .7rem;
+    color: #878686;
+}
+
+.card .card__content .card__body .card__profile .card__user .card__user__rate {
+    padding-top: .2rem;
+    color: rgb(var(--primary));
+}
+
+.card .card__content .card__body .card__profile .card__image  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.card .card__footer a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(var(--primary));
+    padding: 2px 15px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    cursor: pointer;
+}

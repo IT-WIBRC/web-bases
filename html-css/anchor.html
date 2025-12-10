@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Anchor</title>
+    <style>
+        html {
+            scroll-behavior: smooth; /* In order to this to work, the element should be scrollable if not, it should have the `overflow-y: scroll`*/
+            scroll-padding: 10%;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+        }
+
+        header ul {
+            display: flex;
+            list-style-type: none;
+            gap: 0 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        main {
+            min-height: 100svh;
+        }
+
+        main > section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        main > section > span, footer > span {
+            font-size: 1.5rem;
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: bolder;
+        }
+
+        #home {
+            height: 100vh;
+            background-color: aqua;
+        }
+
+         #about-us {
+            height: 100vh;
+            background-color: rgb(0, 255, 106);
+        }
+
+         #services {
+            height: 100vh;
+            background-color: rgb(76, 0, 255);
+        }
+
+         #contact {
+            height: 100vh;
+            background-color: rgb(255, 234, 0);
+        }
+
+         #prices {
+            height: 100vh;
+            background-color: rgb(126, 117, 15);
+        }
+
+        footer {
+            padding: 25px 15px;
+            text-align: center;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#about-us">About Us</a>
+            </li>
+            <li>
+                <a href="#services">Services</a>
+            </li>
+            <li>
+                <a href="#contact">Contacts</a>
+            </li>
+            <li>
+                <a href="#prices">Prices</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section id="home">
+            <span>(Home)</span> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis esse suscipit praesentium illo tempore enim exercitationem neque obcaecati dolore, ducimus nobis soluta iusto, placeat blanditiis quos ut doloribus dignissimos ipsam.
+            Perferendis blanditiis, consequuntur nihil aperiam nesciunt quibusdam? Numquam ab, tempore minima, esse dolore veritatis ipsum repellendus ullam, ad quasi distinctio similique assumenda. Repellat neque corrupti ipsum optio, praesentium voluptatum possimus.
+        </section>
+        <section id="about-us">
+            <span>(About us)</span> - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa veritatis, autem praesentium ab laudantium eveniet fugiat nihil atque repellat distinctio quod, suscipit eaque ipsum? Ducimus ipsam eligendi in temporibus nesciunt.
+            Harum inventore officia vero, vitae vel amet sed veniam excepturi nemo, repellendus quae eveniet molestiae nisi cupiditate cumque! Vero quod sit suscipit earum rem ut quibusdam iusto ipsum officiis inventore.
+            Odio dignissimos incidunt ipsa aut id, placeat maxime odit saepe laudantium nesciunt dolorum doloribus ex ullam numquam officia corrupti necessitatibus possimus. Quae cum numquam, molestias vel minus illum earum ratione.
+            Sed voluptatibus quisquam consectetur dolorem, nihil totam aliquam laudantium consequuntur recusandae fugiat neque. Esse, eligendi, explicabo incidunt sit quas ullam nemo mollitia, fugit minus deserunt ratione unde corrupti laudantium nisi!
+            Reiciendis qui nostrum vel soluta, aliquid repellendus quaerat eligendi harum alias odit fugiat, provident inventore? Vitae voluptate ut pariatur dolorem vel. Eligendi necessitatibus cum ipsa adipisci obcaecati deleniti sit fugit.
+            Fugit ea laboriosam, officia, esse magnam, vel repudiandae earum in eos aut quae natus nam quis animi consectetur ipsa consequatur saepe! Nostrum est eligendi obcaecati voluptas maiores optio vel exercitationem.
+        </section>
+        <section id="services">
+            <span>(Services)</span> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti repellat et id quae molestiae aperiam asperiores blanditiis autem ipsam natus, recusandae, fuga repudiandae enim quibusdam adipisci a soluta unde temporibus.
+            Aperiam blanditiis nisi ad! Sapiente eligendi asperiores quidem ratione in esse corporis, dignissimos facilis illo laudantium magni illum nulla id tenetur laboriosam error commodi dolore dolorem eius omnis inventore enim.
+            Amet asperiores vel hic quia deserunt iure. Facere, corrupti fugit placeat atque omnis earum sequi impedit doloribus ea, quo sapiente illo totam sint error eos fuga! Ex corrupti accusantium assumenda?
+            Voluptates culpa quisquam et architecto praesentium dolorum quia enim omnis. Rem quia error ipsum, nihil tempore enim nostrum laudantium aspernatur quo! Quaerat dicta alias quo. Perferendis distinctio voluptates nisi quo.
+        </section>
+        <section id="contact">
+            <span>(Contact)</span> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam consequatur iusto molestias hic, ad, necessitatibus reprehenderit esse sunt autem minima magnam voluptatum eius. A voluptatem, repudiandae quaerat non sequi similique.
+            Quae, eius. Itaque reprehenderit, dolores voluptatum ipsam temporibus laudantium? Sint, ad beatae praesentium odit esse culpa impedit deserunt temporibus sunt totam placeat ullam vel quasi pariatur dolor? Perferendis, veniam pariatur.
+            Animi ducimus libero possimus ex officiis atque est necessitatibus odit nulla officia a veniam dolorem dignissimos facilis quod laborum explicabo inventore assumenda facere omnis deleniti, eum ea! Ad, cumque quaerat.
+        </section>
+        <section id="prices">
+            <span>Prices</span> ipsum dolor sit amet consectetur adipisicing elit. Suscipit facilis sit delectus nisi modi est laudantium ipsum numquam mollitia exercitationem porro accusamus expedita dolor maiores corrupti obcaecati, vero minima unde.
+            Fugiat neque porro a aspernatur, quo quis ratione dignissimos quidem. Incidunt eos consequuntur amet tempore delectus fuga mollitia doloremque minima, omnis ad nesciunt accusamus natus eum voluptatem culpa non atque.
+            Cumque neque rem cupiditate quisquam obcaecati? Explicabo, et totam cum quasi ipsam deleniti est ratione velit, facilis nobis non quos vel, nostrum amet. Minima cupiditate facere corporis soluta dolor doloribus?
+            Fugiat dolorem deserunt quaerat nisi in minus provident molestiae! Tempore vero quo doloremque facere temporibus numquam possimus. Dolor, at! Quod reprehenderit doloribus illum excepturi, impedit totam aperiam id quas sunt?
+        </section>
+    </main>
+    <footer>
+        <span>(Footer)</span> ipsum dolor, sit amet consectetur adipisicing elit. Vel impedit accusamus quia ipsam magni omnis quidem eos maxime? Voluptas totam minima, ipsum ipsam dolorum repellat perferendis possimus illum aut accusantium!</footer>
+</body>
+</html>

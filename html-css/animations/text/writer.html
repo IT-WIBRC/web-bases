@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Text writer</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background-color: #0b0b0b;
+        }
+
+        body h2 {
+            text-transform: uppercase;
+            font-size: 12vw;
+            -webkit-text-stroke: 0.3vw rgb(50, 47, 47);
+            color: #0b0b0b;
+            position: relative;
+        }
+
+        h2::before {
+            position: absolute;
+            content: attr(data-text);
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 0;
+            border-right: .8vw solid cyan;
+            -webkit-text-stroke: 0.3vw cyan;
+            color: cyan;
+            animation: write 6s infinite;
+            overflow: hidden;
+        }
+
+        @keyframes write {
+            0%,10%,100% {
+                width: 0;
+            }
+
+            60%, 90% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 data-text="Developer...">Developer...</h2>
+</body>
+</html>
