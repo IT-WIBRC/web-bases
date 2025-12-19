@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recuperer les element HTML en javascript</title>
     <style>
         * {
             padding: 0;
             margin: 0;
         }
 
-        .clicked {
+        .clicked { /* Classe a ajouter en css lors du click sur le bouton, lui donnant un style distintif */
             color: green;
             border: none;
             border-radius: 3px;
@@ -21,9 +21,21 @@
 <body>
     <button>Click moi</button>
     <script>
-        const bouton = document.getElementsByTagName("button")[0];
+        const bouton = document.getElementsByTagName("button")[0]; // Recupere l'element en utilisant le nom de la balise html
+        /*
+        * Il y en a plusieurs parmi lesquelles:
+
+        * getElementById: pour recuperer un element a partir de son id
+        * getElementByClassName: pour recuperer les element ayant un classe specifique et retourne un tableau(list) avec ses elements
+        * getElementByName: pour recuperer un element en fonction de son attribut/propriete `name`
+        * querySelector: permet de recupere un element en utilisant tous les selecteur css ex. document.querySelector(".class-name")
+        * querySelectorAll: meme comportement que `querySelector` mais retourne une ayant le selecteur definit en parametre
+        */
         bouton.addEventListener("click", function() {
             bouton.classList.toggle("clicked");
+            // .add(class) to add one or more  classed
+            // .remove(class) to remove one or many classes
+            // .toggle is used to add when the class does not exist and to remove if it does
         })
     </script>
 </body>

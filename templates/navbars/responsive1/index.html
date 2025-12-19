@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar 1</title>
+    <title>Barre de navigation responsive model 1</title>
     <style>
         * {
             padding: 0;
@@ -48,7 +48,7 @@
             transition: .5s;
         }
 
-        .burger .open + .menus {
+        .burger.open + .menus {
             transform: translateX(0);
         }
 
@@ -114,11 +114,11 @@
             </ul>
         </nav>
     </header>
-    <!-- <main>
+    <main>
         <div></div>
         <div></div>
         <div></div>
-    </main> -->
+    </main>
     <script>
         // Primitifs: string(chaine de caractere), number(nombre), boolean (true, false), null, undefined
         // non-primitifs: Object, tableau
@@ -134,7 +134,10 @@
 
         let a = 3; // Or let name='Rayn'
         a = 6;// La valeur est variable
-        const b = 6; // Declaration d'une constante donc la value ne peux pas etre change plustard
+        const b = 6; /*
+        * Declaration d'une constante donc la value ne peux pas etre change plustard
+        * Lors de la declaration d'une constante, on doit toujours definir la valeur initiale
+        */
 
         const listOfName = ["Fadhil", "Paul", "Angelo", 10, true] //creation d'un tableau ex. const nomDuTable = [valeur, ...]
         const etudiant = {
@@ -179,7 +182,7 @@
         * faux et vrai = faux
         * faux et faux = faux
         */
-       let g; // The default value is undefined
+       let g; // La valeur par defaut est `undefined` quand on declare une variable sans valeur initiale
         function division(nombre1, nombre2){
             // Operateurs de comparaison: ==, ===, ||, &&, !=, !==, ??, ||=
             // null, undefined

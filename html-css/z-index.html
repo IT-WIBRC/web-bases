@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS3: z-index</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      /*
+      * Condition: la propriete `position` doit etre differente de statique
+      *
+      * Explanation:  Lorsque des éléments se chevauchent, le z-order détermine l'ordre des différentes couches que formeront les éléments. Généralement, un élément couvrira un autre élément si sa valeur de z-index est supérieure à celle du deuxième élément.
+      */
+
+      .wrapper {
+        position: relative;
+      }
+
+      .boite-tirets {
+        position: relative; /* Donne la possibilite d'utiliser le z-index */
+        z-index: 1;
+        border: dashed;
+        height: 8em;
+        margin-bottom: 1em;
+        margin-top: 2em;
+      }
+      .boite-doree {
+        position: absolute;
+        z-index: 3; /* place .boite-doree au-dessus de .boite-verte et .boite-tirets */
+        background: gold;
+        width: 80%;
+        left: 60px;
+        top: 3em;
+      }
+      .boite-verte {
+        position: absolute;
+        z-index: 2; /* place .boite-verte au-dessus de .boite-tirets */
+        background: lightgreen;
+        width: 20%;
+        left: 65%;
+        top: -25px;
+        height: 7em;
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="boite-tirets">Boîte avec tirets</div>
+      <div class="boite-doree">Boîte dorée</div>
+      <div class="boite-verte">Boîte verte</div>
+    </div>
+  </body>
+</html>
