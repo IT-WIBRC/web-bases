@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component-Based App</title>
+    <style>
+      :root {
+        --color-primary: #3b82f6;
+        --color-secondary: #6b7280;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- These components will load -->
+    <header data-component="header" role="banner"></header>
+
+    <main role="main">
+      <h1>Welcome to My App</h1>
+      <p>This is the main content area.</p>
+
+      <!-- This component exists and will load -->
+      <div
+        data-component="alert"
+        data-type="info"
+        data-message="Welcome message"
+      ></div>
+
+      <!-- This component doesn't exist - will show error -->
+      <aside data-component="sidebar"></aside>
+
+      <!-- This component doesn't exist - will show error -->
+      <article data-component="card"></article>
+    </main>
+
+    <!-- This component exists and will load -->
+    <footer data-component="footer" role="contentinfo"></footer>
+
+    <!-- Load the core system -->
+    <script src="app.js" type="module"></script>
+
+    <!-- Optional: Create components dynamically -->
+    <script>
+      document.addEventListener("app:ready", () => {
+        console.log("App is ready!");
+
+        // Create a component dynamically after 3 seconds
+        setTimeout(() => {
+          App.createComponent("alert", "main", {
+            type: "success",
+            message: "Dynamically created!",
+          });
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

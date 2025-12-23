@@ -1,0 +1,50 @@
+<div
+  class="alert"
+  style="
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid;
+  "
+>
+  <strong>Alert:</strong> <span class="message">Default message</span>
+</div>
+
+<style>
+  .alert {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1e40af;
+  }
+
+  .alert.success {
+    background: #d1fae5;
+    border-color: #10b981;
+    color: #065f46;
+  }
+
+  .alert.error {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #7f1d1d;
+  }
+
+  .alert.warning {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #92400e;
+  }
+</style>
+
+<script>
+  // Component-specific JavaScript
+  (function () {
+    const alert = document.querySelector(".alert");
+    const type = alert.parentElement.getAttribute("data-type") || "info";
+    const message =
+      alert.parentElement.getAttribute("data-message") || "No message";
+
+    alert.classList.add(type);
+    alert.querySelector(".message").textContent = message;
+  })();
+</script>

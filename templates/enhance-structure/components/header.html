@@ -1,0 +1,71 @@
+<header class="site-header" role="banner">
+  <nav class="nav" role="navigation">
+    <div class="logo">
+      <a href="/">MyApp</a>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  :host {
+    display: block;
+    background-color: var(--color-primary, #3b82f6);
+    color: white;
+  }
+
+  .site-header {
+    padding: 1rem 2rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-menu {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
