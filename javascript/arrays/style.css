@@ -25,8 +25,11 @@ body {
 }
 
 .doc h3 {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
   padding-bottom: 20px;
+  color: black;
+  text-align: center;
+  text-emphasis: "🔅" #ffb703;
 }
 
 .doc form {
@@ -86,7 +89,7 @@ body {
   border-radius: 8px;
 }
 
-.list li {
+.list .student {
   color: black;
   background-color: rgb(245, 245, 245);
   padding: 20px;
@@ -99,6 +102,18 @@ body {
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+  position: relative;
+}
+
+.list .student .delete-btn {
+  position: absolute;
+  font-size: 1rem;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  cursor: pointer;
+  border: none;
 }
 
 @keyframes appear {
@@ -108,7 +123,7 @@ body {
   }
 }
 
-.list li:hover {
+.list .student:hover {
   transform: translateY(-10%) scale(1.01);
   box-shadow: 0 2px 5px cyan;
 }
