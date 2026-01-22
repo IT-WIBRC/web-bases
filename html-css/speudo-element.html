@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Elements</title>
+    <style>
+      /* Un `pseudo element` est un mot-clé ajouté à un sélecteur qui vous permet de mettre en forme une partie spécifique du ou des éléments sélectionnés.
+
+      Les doubles deux-points (::) sont utilisés pour les pseudo-éléments. Cela distingue les pseudo-éléments des pseudo-classes qui utilisent un seul deux-points (:) dans leur notation.
+
+      Les pseudo-éléments n'existent pas indépendamment. L'élément dont un pseudo-élément fait partie est appelé son élément d'origine
+
+      Le dernier élément du sélecteur est l'élément d'origine du pseudo-élément. Par exemple, vous pouvez sélectionner la première ligne d'un paragraphe en utilisant `p::first-line`, mais pas les enfants de la première ligne. Ainsi, `p::first-line > *` est invalide.
+
+      Un pseudo-élément peut être sélectionné en fonction de l'état actuel de l'élément d'origine. Par exemple, `p:hover::first-line` sélectionne la première ligne (pseudo-élément) d'un paragraphe lorsque le paragraphe lui-même est survolé (pseudo-classe)
+      */
+
+      /* Types de pseudo elements */
+
+      /* Les pseudo-éléments typographiques */
+
+      /* La première ligne de chaque élément <p>. */
+      p::first-line {
+        color: blue;
+        text-transform: uppercase;
+      }
+
+      /* Les pseudo-éléments de mise en évidence */
+
+      /* La portion d'un document qui a été sélectionnée. */
+      p::selection {
+        color: yellow;
+        background-color: black;
+      }
+
+      /* Les pseudo-éléments conformes à l'arborescence */
+      p::before {
+        content: "H(::before)-->";
+        color: brown;
+      }
+
+      p::after {
+        content: "-->(::after)E";
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam excepturi
+      debitis distinctio similique architecto, quas unde, numquam eaque itaque
+      rerum reprehenderit nisi quibusdam illo expedita harum. Eum, explicabo
+      consequatur. Autem? Lorem ipsum, dolor sit amet consectetur adipisicing
+      elit. Possimus quos obcaecati, nostrum, nobis animi sit corporis vitae
+      porro itaque placeat recusandae exercitationem sapiente, eaque vero cum!
+      In quisquam alias delectus!
+    </p>
+  </body>
+</html>

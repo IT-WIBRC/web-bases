@@ -1,55 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transition & Animations</title>
     <style>
-        a {
-            color: red;
-            text-decoration: none;
-            position: relative;
-            /* transition-property: color 2s font-size 4s;
-            transition-duration: 2s;
-            transition-delay: 5s; */
+      /* Une transition est la passage d'un etat A a un etat B. La definitio de celle-ci est fait a l'etat initial, dans notre cas dans le style de base */
+      .transition {
+        color: red;
+        position: relative;
+        transition-duration: 2s; /* Duree de la transition */
+        transition-property: color font-size; /* Defiit les proprietes succeptibles de changer */
+        transition-delay: 5s; /* Delais d'attente avant le lancement de la transition */
+        transition-timing-function: ease-in; /* Definit le comportement de la transition */
+        /* ease-in:  lent au debut */
+        /* ease-out: lent a la fin */
+        /* ease-in-out:  lent au debut et a la fin */
+        /* linear:  meme vitesse du debut a la fin*/
+      }
+
+      /* On utilise les pseudo class pour definir l'etat final de notre transition */
+      .transition:hover {
+        color: black;
+        font-size: 0.5rem;
+      }
+
+      /* Animation est un ensemble de transition */
+      .animation {
+        position: relative;
+        text-decoration: none;
+      }
+
+      /* On utilise les pseudo elements pour creer un contenu avant le texte qui est la ligne qui sera affichee au survol */
+      .animation::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 1px;
+        bottom: 0;
+      }
+
+      /* On demande de faire au survol sur le lien, l'element que l'on a place avant (before) le contenu, d'etre anime avec une animation definit */
+      .animation:hover::before {
+        background-color: purple; /* On changera le backgroun de contenu ajouter */
+        animation-name: move; /* Definit le nom de l'animation */
+        animation-duration: 0.5s; /* Definit la duree de l'animation */
+        animation-delay: 3s; /* Definit le delais avant le debut de l'animation */
+        animation-fill-mode: forwards; /* Donne le mode de remplissage. `forwards` pour dire de l'avant et lorsque je laisse le survol il quittera. `backwards` pour dire a la fin, on revient a zero */
+      }
+
+      /* @keyframe est le mot clef utilise pour definit les etapes de l'animation. Il est suivit du nom de l'animation */
+      @keyframes move {
+        /* 0% represente le debut de l'animation */
+        0% {
+          width: 0;
         }
 
-        /* a:hover {
-            color: purple;
-            font-size: 1.2rem;
-        } */
-
-        a::before {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 1px;
-            bottom: 0;
+        25% {
+          width: 30%;
         }
 
-        a:hover::before {
-            background-color: purple;
-            animation-name: move;
-            animation-duration: .5s;
-            animation-fill-mode: forwards;
+        /* On peut egalement definit plusieurs niveaux entre 0% et 100% comme par exemple 20%, 48%, etc avec les styles a appliques */
+
+        /* Ceci represente la fin de l'animation */
+        100% {
+          width: 100%;
         }
-
-        @keyframes move {
-            40% {
-                width: 100%;
-            }
-
-            70% {
-                width: 40%;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <a href="#">Bienvenue</a>
-</body>
+  </head>
+  <body>
+    <button class="transition">Bienvenue</button>
+    <a href="#" class="animation">Animation</a>
+  </body>
 </html>

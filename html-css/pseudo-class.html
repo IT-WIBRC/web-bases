@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Class</title>
+    <style>
+      /*
+          - Les `pseudo classes (:)` sont de mots clefs que l'on ajoute a des selecteurs pour styliser un etaspecifique des elements selectionnes. Une pseudo-classe consiste en un deux-points (:) suivi du nom de la pseudo-classe (par exemple, :hover). L'élément auquel une pseudo-classe est attachée est défini comme un **élément d'ancrage** (par exemple, button dans le cas de button:hover)
+        */
+
+      /* Pseudo-classes d'action utilisateur·ice */
+      /* Tout bouton sur lequel le pointeur de l'utilisateur·ice est en survol */
+      button:hover {
+        color: blue; /* appliquera le couleur blue au survol */
+        border-radius: 10px;
+      }
+
+      input:focus {
+        outline: 2px solid orange; /* Appliquera une bordure orange lorsque le champ de formulaire est en focus */
+      }
+
+      /* Pseudo-classes d'entrée de formulaire */
+      input:focus:invalid {
+        border: 2px solid red; /* Appliquera une bordure rouge aux champs de formulaire invalides */
+      }
+
+      input:valid {
+        border: 2px solid green; /* Appliquera une bordure verte aux champs de formulaire valides */
+      }
+
+      input:user-invalid {
+        /* border: 2px solid orange; */
+        /* Appliquera une bordure orange aux champs de formulaire que l'utilisateur·ice a marqué comme invalides */
+      }
+
+      input:user-valid {
+        /* border: 2px solid blue; */
+        /* Appliquera une bordure bleue aux champs de formulaire que l'utilisateur·ice a marqué comme valides */
+      }
+
+      /* Pseudo-classes linguistiques */
+      a:visited {
+        color: aquamarine; /* S'appliquer a des lien non visites */
+      }
+
+      a:link {
+        color: black; /* S"appliquer a tous les liens de la page sans exception */
+      }
+
+      /* Pseudo-classes structurelles d'arbre */
+      section p:first-child {
+        font-style: italic; /* Donnera un style en italique au premier element (p) de la section */
+      }
+
+      section p:last-child {
+        font-weight: bold; /* Donnera un style en gras au dernier element (p) de la section */
+      }
+
+      section p:nth-child(even) {
+        background-color: red; /* Appliquera une couleur de fond gris clair aux elements (p) impairs de la section */
+      }
+
+      /* Pseudo-classes fonctionnelles */
+      section p:not(:first-child):not(:last-child) {
+        text-decoration: underline; /* Soulignera tous les elements (p) de la section sauf le premier et le dernier */
+      }
+
+      section:has(header) {
+        border: 2px solid purple; /* Appliquera une bordure violette a toute section contenant un element header */
+      }
+
+      section:where(section) {
+        background-color: lightyellow; /* Appliquera une couleur de fond jaune clair a toute section imbriquee dans une autre section */
+      }
+    </style>
+  </head>
+  <body>
+    <button>Passe sur moi</button>
+    <form>
+      <input type="email" required placeholder="Entrez votre email" />
+    </form>
+
+    <a href="#">Mon lien</a>
+
+    <section>
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+      <p>Paragraph 3</p>
+      <p>Paragraph 4</p>
+      <p>Paragraph 5</p>
+    </section>
+
+    <section>
+      <header>Mon Header</header>
+      <footer>Mon Footer</footer>
+    </section>
+
+    <section>
+      <section>Premiere section</section>
+      <section>Deuxieme section</section>
+    </section>
+  </body>
+</html>
