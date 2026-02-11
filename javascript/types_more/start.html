@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,8 +8,9 @@
       * {
         padding: 0;
         margin: 0;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
       }
 
       html,
@@ -136,7 +137,7 @@
     </main>
     <script>
       // Primitifs: string(chaine de caractere), number(nombre), boolean (true, false), null, undefined
-      // non-primitifs: Object, tableau
+      // non-primitifs: Object, tableau,Map, Set
 
       //Nommenclature
       /* liste des noms
@@ -149,7 +150,9 @@
         */
 
       // a <-- 3;
-      let a = 3; // Or let name='Rayn'
+      let nombre; // undefined
+      let a = 3;
+      let nom = "l'autre"; // Or let name='Rayn'
       a = 6; // La valeur est variable
       const b = 6;
       /*
@@ -173,14 +176,26 @@
       // } on auraune erreur car on essaie de changer la valeur d'une constante
 
       // Operateurs
-      // +, -, /, *
-      1 + 2;
+      // +, -, /, *, %
+      1 + 2; // 3
+      1 + "9876"; // "19876"
       // Contatenation
       "Name" + " Trainer"; // Name Trainer
+      1 ** 2; // Math.pow()
 
       // function
+      //function functionName (param1, param2, ...){}
       function addition(nombre1, nombre2) {
         return nombre1 + nombre2;
+        //nombre2 + nombre1;
+      }
+
+      console.log(addition(2, 3));
+
+      //typeof 1 --> "number"
+      if (1 > 2) {
+        // == ===; 2 == "2" = true; 2 === "2" = false
+        console.log("superieur");
       }
 
       console.log("Resultat", "2" === 2);
@@ -201,18 +216,43 @@
        * faux et faux = faux
        */
       let g; // La valeur par defaut est `undefined` quand on declare une variable sans valeur initiale
+      // Operateurs de comparaison: ==, ===, ||, &&, !=, !==, ??, ||=
+      // null, undefined
+
+      // Fonctions utilitaires
+      function areDefined(param1, param2) {
+        return param1 !== undefined && param2 !== undefined;
+      }
+
+      function areNumbers(param1, param2) {
+        return typeof param1 === "number" && typeof param2 === "number";
+      }
+
+      function isZero(nombre) {
+        return nombre === 0;
+      }
+
+      // Fin des fonctions utilitaires
+
       function division(nombre1, nombre2) {
-        // Operateurs de comparaison: ==, ===, ||, &&, !=, !==, ??, ||=
-        // null, undefined
-        if (nombre1 == undefined || nombre2 == undefined) return;
-        if (typeof nombre1 != "number" || typeof nombre2 != "number") return;
-        if (nombre2 == 0) return;
+        if (!areDefined(nombre1, nombre2)) {
+          return "Awaiting for two params";
+        }
+
+        if (!areNumbers(nombre1, nombre2)) {
+          return "Both param should be of type 'number'";
+        }
+
+        if (isZero(nombre2)) {
+          return "the second value should be different from '0'";
+        }
 
         return nombre1 / nombre2;
       }
 
       addition(4, 5);
       console.log(division("123", "0"));
+      // Exercise: write a function for each operation (addition, substraction, mutiplication, modulo, puissance)
 
       console.log(document.getElementsByClassName("logo")[0].classList);
       //Open/Close burger
