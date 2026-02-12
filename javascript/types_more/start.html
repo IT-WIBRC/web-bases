@@ -235,6 +235,13 @@
       // Fin des fonctions utilitaires
 
       function division(nombre1, nombre2) {
+        if (nombre1 == undefined || nombre2 == undefined) {
+          console.log("executer");
+        }
+
+        // && : false && false
+        // ||: true || true
+
         if (!areDefined(nombre1, nombre2)) {
           return "Awaiting for two params";
         }
@@ -252,7 +259,82 @@
 
       addition(4, 5);
       console.log(division("123", "0"));
-      // Exercise: write a function for each operation (addition, substraction, mutiplication, modulo, puissance)
+      /*
+        TODO: Exercise: write a function for each operation (addition, substraction, mutiplication, modulo, puissance)
+      */
+
+      /* Valeurs considerees comme fausse lors d'une condition (falsy values)
+         0, "", '', ``, false, null, undefined, NaN, document.all
+         Eg. if(valeur) sera toujours evalue a faux si une de ces values
+      */
+
+      function isFalsy(value) {
+        return Boolean(value);
+      }
+
+      const nombreTest = 10;
+      if (nombreTest) {
+        console.log("here");
+      }
+
+      /* Autre maniere de faire des conditions */
+      // Ternaires (A utiliser avec precaution. Recommender pour des cas avec peux de condition (2 a 3))
+      nombreTest > 21 ? console.log("majeur") : console.log("mineur");
+
+      nombreTest > 5
+        ? console.log("Enfant")
+        : nombreTest > 10
+          ? console.log("Adolescent")
+          : nombreTest > 21
+            ? console.log("Majeur")
+            : console.log("Adulte");
+
+      // switch cases (Permet de verifier les etats fixes comme un status, un nom precis)
+
+      const statusCommande = "En Cours"; // peut etre "En cours", "Pas Payee", "Payee", "Archive"
+      switch (statusCommande) {
+        case "En Cours":
+          console.log("Toujours en cours de choix des produits");
+          break;
+        case "Pas Payee":
+          console.log("Votre commande est impayee");
+          break;
+        case "Payee":
+          console.log("Bravo et merci! VOtre commade a ete payee avec success");
+          break;
+        case "Archivee":
+          console.log("Votre commande a ete archive vue sa duree!!");
+          break;
+        default:
+          console.log("Le status de la commande est inconnus");
+      }
+
+      // short circuiting (Permet d'execute un code particuler si l'autre partie est vrai (true))
+
+      isZero(1) && console.log("Votre valeur est 0 ce qui est impossible");
+      // si celui de gauche est vrai alors celui de droite s'execute
+
+      /* Boucles et tant que */
+      // Boucles (for)
+      /*
+      pour i allant 1 a n faire
+        instruction 1
+        ...
+      */
+
+      // for(intialisation; condition; incrementation) { intructions }
+      for (let note = 0; note <= 20; note = note + 1) {
+        console.log(note);
+      }
+
+      // tant que (while, while do)
+
+      /* Certaines fonction natives */
+      //prompts
+      // confirm
+      // alert
+      // parseInt
+      // parseFloat
 
       console.log(document.getElementsByClassName("logo")[0].classList);
       //Open/Close burger
