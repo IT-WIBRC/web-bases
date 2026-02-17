@@ -11,8 +11,92 @@
       function addition(number1, number2) {
         return number1 + number2;
       }
-      addition(2, 3)
-      console.log(addition(2, 3));
+      addition(2, 3);
+      console.log("Addition", addition(2, 3));
+
+      // for(intialisation; condition; incrementation) { intructions }
+      console.log("------- Structure iteratives -----\n\n");
+
+      console.log("Boucle For------------------------------------------\n\n");
+
+      for (let note = 0; note <= 20; note = note + 1) {
+        console.log(note);
+      }
+
+      // tant que (while, while do)
+
+      // Exercise:2 Guessing game
+
+      /* Certaines fonction natives */
+      //prompt: Pour demander et recuperer un element a l'utilisateur
+      // eg. prompt("message", "valeur par default")
+      // confirm: Pour afficher une modale de confirmation a l'utilisateur
+      // eg. confirm("Message")
+      // alert: Pour afficher un message d'alerte a l'utilisateur
+      // e.g alert("Message")
+      // parseInt: Pour parser une chaine de chaine de charactere en entier ou un nombre (decimal, binaire, hexadecimal ou octal)
+      parseInt("1020");
+      Number(); // Meme fonctionnement que `parseInt` mais convertit ce qui est passe en parametre en entier
+      // parseFloat: Convertit une chaine de charactere en nombre floatant
+      parseFloat("");
+
+      // Tableaux (Array): Permet de conserver un liste d'element du meme context. En javascript, un tableau n'est pas limite a un seul type d'element mais peut contenir plusieur types
+      // eg. const nomTableau = [];
+      const listeDesNotes = [
+        10,
+        20,
+        30,
+        40,
+        15,
+        "30",
+        false,
+        [],
+        {},
+        null,
+        undefined,
+      ];
+      console.table(listeDesNotes); // Afficher le tableau sous forme de table [index, valeur]
+
+      /* Acceder a un element dans un tableaux. Le premier element du tableaux est a l'index `0` et non 1. Donc si un tableau contient 10 elements, le dernier element sera a l'index 9 et non 10
+       */
+      console.log(listeDesNotes[10]); // Retournera et affichera l'element a l'index 10
+
+      // Methodes des tableaux
+
+      // push
+      listeDesNotes.push(25); // Permet d'ajouter une element a la fin d'un tableau
+      console.table(listeDesNotes);
+
+      // pop
+      listeDesNotes.pop(); // Permet d'enlever le dernier element du tableaux
+      console.table(listeDesNotes);
+
+      //forEach
+      listeDesNotes.forEach(function (valeur, index) {
+        console.log("A l'index " + (index + 1) + " j'ai la valeur: " + valeur);
+      });
+
+      //map
+      console.log("\n\n\n--------map--------------------\n\n\n");
+      const liste = [1, 8, 19, 59, 40];
+      const tripleList = liste.map(function (valeur) {
+        let operation = valeur * 3;
+        operation = operation * 10;
+        operation = operation / 4;
+        return operation;
+      });
+
+      console.log("Initial", liste);
+      console.log("final", tripleList);
+
+      // filter
+      const listeFiltree = listeDesNotes.filter(function (valeur) {
+        // ...instructions
+        return valeur % 2 === 0;
+      });
+      console.log(listeFiltree);
+
+      // 
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,11 +25,15 @@
       const prenom = "Perick";
 
       const fullname = name + " " + prenom; //"Pauline Perick"
-      const fullnameInterpolate = `${name} ${prenom}`; //"Pauline Perick";
+      const fullnameInterpolate = `${name == "" ? "Pas de nom" : name} ${prenom}`; //"Pauline Perick";
 
       const age = 23;
-      const text = `jsablkdjbalskdbaksldbkasjbdlkasjbd
-      lkajsblkabdjklasdkjas`; // Resout le problem d'aller a ligne avec les chaine de characteres
+      const text = `
+         <div>
+           <span></span>
+           <button></button>
+        </div>
+      `; // Resout le problem d'aller a ligne avec les chaine de characteres
       const fullnameAge = `${fullnameInterpolate} et age ${age}`;
       console.log(fullnameAge);
 
@@ -38,7 +42,7 @@
       //   length: Permet de recuperer le nombre de charactere
       console.log(prenom.length, prenom[prenom.length - 1]);
       //   at: Fait le meme travail que `charAt` mais accepte aussi le parcours dans le sens inverse (eg. -1 pour le premier caractere commencant a la fin)
-      console.log("Method 'at': ", prenom.at(0), prenom.at(-2));
+      console.log("Method 'at': ", prenom.at(0), prenom.at(-1));
       // toUpperCase : Permet de rendre la chaine de caractere en majuscule
       console.log("UpperCase: ", prenom.toUpperCase());
       // toLowerCase: Permet de rendre le chaine de caractere en minuscule
@@ -48,7 +52,7 @@
       //split: Permet de coupter un chaine de charactere suivant un separateur en parametre
       console.log("split: ", "My name is hey".split(" ")); //["My", "name", "is", "hey"]
       //indexOf: Permet de recupere l'index d'un caractere dans la chaine de caractere
-      console.log("IndexOf: ", prenom.indexOf("i"));
+      console.log("IndexOf: ", prenom.indexOf("i")); // Perick:
       //lastIndexOf: Permet de recupere l'index de la derniere aucurrence d'un caractere dans la chaine de caractere
       console.log("lastIndexOf: ", prenom.lastIndexOf("c"));
       //includes: Permet de verifier si une chaine de caractere contient un caractere specific ou une autre chaine
@@ -57,10 +61,14 @@
       console.log(
         "startsWith: ",
         prenom.startsWith("i"),
-        prenom.startsWith("per")
+        prenom.startsWith("per"),
       );
       // trim: Permet d'enlever les espaces au debut et a la fin d'une chaine de caractere
       console.log("Trim: ", "  hey bro how are you   ".trim());
+
+      console.log(
+        "\n\n\n ____________ Exercise(Capitalize function) __________\n\n\n",
+      );
       /* Exercise (Capitalize word and sentence)
        Cas 1: ("mon nom est un genre"); // Mon Nom Est Un Genre
        Cas2: ("alan"); // Alan
@@ -78,17 +86,17 @@
       function capitalize(word) {
         const tableauDeMots = word.split(" ");
         const tableauDeMotAvecPremiereLettreMajuscule = tableauDeMots.map(
-          (w) => w.charAt(0).toUpperCase() + w.slice(1)
+          (w) => w.charAt(0).toUpperCase() + w.slice(1),
         );
 
         return tableauDeMotAvecPremiereLettreMajuscule.join(" ");
       }
 
       console.log("Capitalize: (Mot)", capitalize("alan"));
-      console.log(
-        "Capitalize: (Phrase)",
-        capitalize("mon nom est un genre et j'apprecit")
-      );
+      // console.log(
+      //   "Capitalize: (Phrase)",
+      //   capitalize("mon nom est un genre et j'apprecit"),
+      // );
     </script>
   </body>
 </html>
