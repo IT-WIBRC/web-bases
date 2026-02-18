@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,9 @@
   <body>
     <script>
       //Literal object
-      const objectName = {};
+      const objectName = {
+        propriete: valeur,
+      };
 
       const armelle = {
         age: 22, // Propriete: valeur; La propriete fait reference a la caracterisque de l'object ou etudiant dans notre cas utilise au system
@@ -27,6 +29,7 @@
       const centreFormations = {
         nom: "Devia",
         dateCreation: "",
+        isOpened: true,
         etudiants: [
           // Un object peut contenir d'autre types et meme un autre object et un table de sans limite
           {
@@ -50,6 +53,20 @@
           },
         ],
       };
+
+      // Access
+      console.log(centreFormations.nom.toU)
+      console.log(centreFormations.etudiants.at(0));
+      const student = {
+        name: "asas",
+        hobby: {
+          foot: "ball",
+          basket: "ball",
+          tennis: "de table",
+        },
+      };
+      console.log(student.hobby.tennis)
+
       // Map et Set
       const liste = new Set(["Nom1", "Nom2", "nom1", "Nom3", "Nom4"]); // Est plus utilise lorsque l'on veux enlever les doublons et ne voulons aucune repetition.
       // est sensible a la casse (n est different de N)
@@ -153,7 +170,7 @@
         32,
         "10/10/1994",
         "fadil@email.com",
-        "6777777777"
+        "6777777777",
       );
       // Fait appel a la methode `set` definit dans la class
       fadil.nom = "Fadil";
@@ -167,7 +184,7 @@
         32,
         "10/10/1994",
         "neybi@email.com",
-        "6797777777"
+        "6797777777",
       );
 
       neybi.marcher(); // demande a l'etudiant `neybi` de marcher
