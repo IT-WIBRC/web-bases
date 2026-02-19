@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulation du DOM (Document Object Model)</title>
+  </head>
+  <body>
+    <button id="btn" class="btn-action" name="test">Bouton non clique</button>
+    <script>
+      /*
+          DOM: Document Object Model: c'est un model de representation du document HTML sous forme d'objet JavaScript
+          Jl permet de manipuler les elements HTML a partir de javascript (ajouter/supprimer/modifier une balise) a n'importe quel niveau du Document html
+
+          ** Fonction de recuperation des element du DOM
+          - getElementById: Recuperer l'element en utilisant son attribut `id`. ex. document.getElementById("btn")
+          - getELementByTagName: Recuperer l'element en utilisant son nom comme `p, section`. ex. document.getElementByTagName("button")
+          - getElementByClassName: Recuperer l'element en utilisant son attribut `class`. ex. document.getElementByClassName("btn-action")
+          - getElementByName: Recuperer l'element en utilisant son attribut `name`. ex. document.getElementByName("test")
+
+
+          *** Jl existe d'autre methode plus generique qui utilisent les selecteurs css pour recuperer les elements
+            - querySelector: Pour recuperer un element en utilisant le selecteur css. ex. document.querySelector(".btn-action"): (.: class, #: id, etc.)
+            - querySelectorAll: Pour recuperer toutes les occurences sur la base du selecteur. S'il y a plusieur element correspondant au selecteurs, il les selectionnera sous forme de tableau
+        */
+
+      // Cas Pratique en utilisant les selecteurs specifiques
+      const bouton1 = document.getElementById("btn"); // renvoi la balise html ayant l'attribut `id` avec la valeur `btn` sous forme d'objet JS. Renverra null s'il ne trouve pas
+      console.log(bouton1); // Affichera le button s'il existe dans le html et null sinon
+
+      //   Cas avec selecteur generique utilisant les selecteurs css
+      const bouton2 = document.querySelector(".btn-action"); // renvoi la balise html ayant l'attribut `class` avec la valeur `btn-action` sous forme d'objet JS. Renverra null s'il ne trouve pas
+      console.log(bouton2);
+
+      // Access au contenue
+      // textContent: recuperer le contenu textuel de l'element ou le modifier si besoin
+      // Access
+      console.log(bouton2.textContent); // Bouton non clique
+
+      // Modifier
+      bouton1.textContent = "Bouton non clique modifie";
+
+      /*
+      Une des choses les plus utilisee en JS sont les ecouter d'evements. Elles permettent de reagir a une action de l'utilisateur, rendant ainsi la page dynamique. Il le fait en attachant un ecouteur sur un element html et lorsque cela est declenche par l'utilisateur, il reagit comme definit
+    */
+      bouton1.addEventListener("click", () => {
+        // Je peux affucher signalie le click
+        alert("L'utilisateur a clicke sur le bouton");
+
+        //Je peut modifier son contenu
+        bouton1.textContent = "Bouton non clique clique";
+      }); // Jl demande a ecouter quand l'utilisateur clickera sur le le `bouton1`, qui est celui que l'on a selectionne plus haut. Et une fois le click effectue par l'utilisateur, il executera la fonction (callback) passe. Dans notre cas, il alertera l'utilisateur et changera le text du bouton
+
+      // ***** Ajouter un element dans le DOM en JS: Comme je l'ai dit, on peut egalement ajouter de nouveaux element avec leur contenu dynamiquement
+
+      // Je vais ajouter un paragraph dans le body
+      const paragraph = document.createElement("p"); // Permet de creer une balise HTML en JS. EN paranthese, on place le nom de la balise que l'on veut creer (p dans notre cas)
+      paragraph.textContent = "Texte creer dynamiquement";
+
+      //   Ensuite, il faut l'ajouter dans le document car il est creer en JS mais pas encore visible dans le document html. Pour le faire, on utilisae la methode `appendChild` pour dire ajouter comme enfant
+      document.body.appendChild(paragraph); // Il ajoutera le paragraph cree dans la balise body apres la balise `button` deja presente
+
+      // **** Supprimer un element (utiliser la methode `remove ou removeChild` pour supprimer un element soit dans le document ou un enfant d'un autre element)
+      //document.body.remove(paragraph) // Supprimera le paragraph dans le body
+
+      // Manipulation des classes en JS (classList)
+      /*
+         Il est possible d'ajouter et de retire des classess css en JS
+          - `element.classList`: Affichera toutes les classes de le'element
+          - `element.add('class')`: ajoutera dans l'attribut class la valeur class a lasuite des autre si deja presente: ex. <p class='class'> </p>
+          - `element.remove('class')`: supprimera la class `class` dans l'attribut class de l'element
+          - `element.toggle('class')`: Il enlevera la valeur `class` de l'attribut class de l'element si elle est presente et l'ajoutera sinon
+         */
+    </script>
+  </body>
+</html>
