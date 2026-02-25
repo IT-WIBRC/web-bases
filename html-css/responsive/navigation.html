@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barre de navigation responsive model 1</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        background: #000;
+        color: white;
+        position: relative;
+        z-index: 0;
+      }
+
+      .burger {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        justify-content: space-between;
+        height: 28px;
+        width: 40px;
+        z-index: 2;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+
+      .burger.open {
+        transform: translate(-240px, 20%) scale(0.7);
+      }
+
+      .burger.open:hover > span {
+        background-color: rgb(228, 54, 54);
+      }
+
+      .burger span {
+        display: block;
+        width: 40px;
+        height: 15%;
+        background-color: #fff;
+        transition: 0.5s;
+        border-radius: 6px;
+      }
+
+      .burger + .menus {
+        transform: translateX(100%);
+        transition: 0.5s;
+      }
+
+      .burger.open + .menus {
+        transform: translateX(0);
+      }
+
+      .open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .open span:nth-child(1) {
+        transform: translate(0, 12px) rotate(-45deg);
+      }
+
+      .open span:nth-child(3) {
+        transform: translate(0, -12px) rotate(45deg);
+      }
+
+      .navigation {
+        position: relative;
+      }
+
+      .menus {
+        position: absolute;
+        background: #082c45;
+        list-style-type: none;
+        padding: 5px;
+        width: 300px;
+        height: 100dvh;
+        right: -15px;
+        top: -15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem 0;
+        z-index: 1;
+      }
+
+      .menus li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 class="logo a b c d">Logo</h2>
+      <nav class="navigation">
+        <button class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="menus">
+          <li>
+            <a href="#">Menu 1</a>
+          </li>
+          <li>
+            <a href="#">Menu 2</a>
+          </li>
+          <li>
+            <a href="#">Menu 3</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div></div>
+      <div></div>
+      <div></div>
+    </main>
+    <script>
+      const burger = document.querySelector(".burger");
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

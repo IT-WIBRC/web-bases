@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,8 +9,9 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
       }
 
       html,
@@ -29,7 +30,9 @@
         color: white;
         font-size: 9vw;
         font-weight: bold;
-        text-shadow: 3px 4px 2px rgb(255, 162, 0), 0 0 1em rgb(38, 142, 226),
+        text-shadow:
+          3px 4px 2px rgb(255, 162, 0),
+          0 0 1em rgb(38, 142, 226),
           0 0 0.2em rgb(118, 32, 248);
       }
     </style>
@@ -47,7 +50,7 @@
       function calculateTime() {
         const currentDate = new Date();
         const time = `${formatNumber(currentDate.getHours())}:${formatNumber(
-          currentDate.getMinutes()
+          currentDate.getMinutes(),
         )}:${formatNumber(currentDate.getSeconds())}`;
 
         const timeInDom = document.querySelector("time");

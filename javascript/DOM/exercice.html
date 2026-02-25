@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px 0;
+      }
+
+      form {
+        width: 500px;
+      }
+
+      input {
+        margin: 0 auto;
+        outline-color: aqua;
+        padding: 10px 8px;
+        border: 1px solid gray;
+        width: 80%;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      ul {
+        width: 450px;
+      }
+
+      .error {
+        outline: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="search" placeholder="Entrer quelque chose" required />
+    </form>
+    <ul></ul>
+    <script>
+      const list = document.querySelector("ul");
+      const input = document.querySelector("input");
+      document.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (input.value.trim() === "") {
+          input.classList.add("error");
+          input.value = "";
+          return;
+        }
+        input.classList.remove("error");
+
+        const item = document.createElement("li");
+        item.textContent = input.value;
+
+        list.append(item);
+
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>
