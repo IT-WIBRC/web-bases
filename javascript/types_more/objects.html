@@ -55,7 +55,7 @@
       };
 
       // Access
-      console.log(centreFormations.nom.toU)
+      console.log(centreFormations.nom.toU);
       console.log(centreFormations.etudiants.at(0));
       const student = {
         name: "asas",
@@ -65,7 +65,7 @@
           tennis: "de table",
         },
       };
-      console.log(student.hobby.tennis)
+      console.log(student.hobby.tennis);
 
       // Map et Set
       const liste = new Set(["Nom1", "Nom2", "nom1", "Nom3", "Nom4"]); // Est plus utilise lorsque l'on veux enlever les doublons et ne voulons aucune repetition.
@@ -110,84 +110,6 @@
       console.log(listeMap.values()); // Recupere les valeur sous forme d'iterateur
       console.log(listeMap.has("email2")); // Verifier s'il y a deja un clef avec ce nom
       console.group(listeMap.clear()); // Vider la liste de ses elements et la remettre a zero
-
-      //   POO: Programmation Orientee Object
-      class EtudiantDevia {
-        // Attributs
-        #nom = ""; // attribut privee
-        age = 0; // Attribut public
-        dateDeNaissance = "";
-        email = "";
-        tel = "";
-
-        /**
-         * un methode speciales utilisee pour creer un instance de cette classe et donc un etudiant devia
-         * @param {string} nom nom de l'etudiant
-         * @param {number} age age de l'etudiant
-         * @param {Date} dateDeNaissance date de naissance de l'etudiant
-         * @param {string} email email de l'etudiant
-         * @param {string} tel numero de telephon de l'etudiant
-         */
-        constructor(nom, age, dateDeNaissance, email, tel) {
-          this.#nom = nom;
-          this.age = age;
-          this.dateDeNaissance = dateDeNaissance;
-          this.email = email;
-          this.tel = tel;
-        }
-
-        // une methode permettant la modification d'un attribut privee de la classe
-        set nom(newName) {
-          this.#nom = newName;
-        }
-
-        // Une methode permettant l'access a un attribut privee de la classe
-        get nom() {
-          return this.#nom;
-        }
-
-        //Methodes ou actions de cette classe: ce que un etudiant doit etre capable de faire
-        voir() {
-          console.log(`${this.#nom} voit`);
-        }
-
-        entendre() {
-          console.log(`${this.#nom} entends`);
-        }
-
-        parler() {
-          console.log(`${this.#nom} parles`);
-        }
-
-        marcher() {
-          console.log(`${this.#nom} marches`);
-        }
-      }
-
-      // Permet de creer une instance de l'object base sur la classe definit plus haut sans avoir a tout definir comme avec les object literaux
-      const fadil = new EtudiantDevia(
-        "Fadhil",
-        32,
-        "10/10/1994",
-        "fadil@email.com",
-        "6777777777",
-      );
-      // Fait appel a la methode `set` definit dans la class
-      fadil.nom = "Fadil";
-
-      fadil.marcher();
-      fadil.voir(); // Demander a cet etudiant de voir ou tester s'il voit
-      fadil.entendre(); // Demander a cet etudiant s'il entend ou tester s'il voit
-
-      const neybi = new EtudiantDevia(
-        "neybi",
-        32,
-        "10/10/1994",
-        "neybi@email.com",
-        "6797777777",
-      );
-
-      neybi.marcher(); // demande a l'etudiant `neybi` de marcher
     </script>
   </body>
 </html>

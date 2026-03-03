@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO EN JS</title>
+  </head>
+  <body>
+    <script>
+      //   POO: Programmation Orientee Object
+
+      class EtudiantDevia {
+        // Attributs
+        #nom = ""; // attribut privee
+        age = 0; // Attribut public
+        dateDeNaissance = "";
+        email = "";
+        tel = "";
+
+        /**
+         * un methode speciales utilisee pour creer un instance de cette classe et donc un etudiant devia
+         * @param {string} nom nom de l'etudiant
+         * @param {number} age age de l'etudiant
+         * @param {Date} dateDeNaissance date de naissance de l'etudiant
+         * @param {string} email email de l'etudiant
+         * @param {string} tel numero de telephon de l'etudiant
+         */
+        constructor(nom, age, dateDeNaissance, email, tel) {
+          this.#nom = nom;
+          this.age = age;
+          this.dateDeNaissance = dateDeNaissance;
+          this.email = email;
+          this.tel = tel;
+        }
+
+        // une methode permettant la modification d'un attribut privee de la classe
+        set nom(newName) {
+          this.#nom = newName;
+        }
+
+        // Une methode permettant l'access a un attribut privee de la classe
+        get nom() {
+          return this.#nom;
+        }
+
+        //Methodes ou actions de cette classe: ce que un etudiant doit etre capable de faire
+        voir() {
+          console.log(`${this.#nom} voit`);
+        }
+
+        entendre() {
+          console.log(`${this.#nom} entends`);
+        }
+
+        parler() {
+          console.log(`${this.#nom} parles`);
+        }
+
+        marcher() {
+          console.log(`${this.#nom} marches`);
+        }
+      }
+
+      // Permet de creer une instance de l'object base sur la classe definit plus haut sans avoir a tout definir comme avec les object literaux
+      const fadil = new EtudiantDevia(
+        "Borel",
+        32,
+        "10/10/1994",
+        "fadil@email.com",
+        "6777777777",
+      );
+      // Fait appel a la methode `set` definit dans la class
+      //   fadil.nom = "Fadil";
+
+      fadil.marcher();
+      //   fadil.voir(); // Demander a cet etudiant de voir ou tester s'il voit
+      //   fadil.entendre(); // Demander a cet etudiant s'il entend ou tester s'il voit
+
+      const neybi = new EtudiantDevia(
+        "neybi",
+        32,
+        "10/10/1994",
+        "neybi@email.com",
+        "6797777777",
+      );
+
+      neybi.marcher(); // demande a l'etudiant `neybi` de marcher
+    </script>
+  </body>
+</html>

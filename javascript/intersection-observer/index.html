@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation au scroll</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding: 10%;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8rem 4rem;
+        background-color: aquamarine;
+        position: sticky;
+        top: 0;
+      }
+
+      header nav {
+        padding: 10px;
+      }
+
+      header nav ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        gap: 0 1rem;
+      }
+
+      header nav ul a {
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: brown;
+      }
+
+      main {
+        padding: 1em 40px;
+      }
+
+      #home {
+        height: 50vh;
+        background-image: url(./images/henry-be-IicyiaPYGGI-unsplash.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2em;
+        flex-direction: column;
+        padding: 2em;
+      }
+
+      #home p {
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      #home div {
+        display: flex;
+        justify-content: center;
+        gap: 0 2rem;
+        width: 100%;
+      }
+
+      #home button {
+        font-size: larger;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 8rem;
+        text-transform: uppercase;
+        font-weight: bolder;
+      }
+
+      #home button:first-child {
+        background-color: rgb(151, 51, 15);
+        color: white;
+      }
+
+      #home button:last-child {
+        background-color: rgb(214, 143, 10);
+        color: black;
+      }
+
+      #a-propos {
+        padding: 3em 0;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      #services {
+        padding: 3rem 0;
+        transition: 0.4s;
+      }
+
+      #services img {
+        height: auto;
+        width: 500px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+        transform: translate(20%, 10%);
+        scale: 0.4;
+        opacity: 0.5;
+      }
+
+      #services .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .appear {
+        animation-name: appear;
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes appear {
+        to {
+          transform: translate(0);
+          scale: 1;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Logo</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#a-propos">A Propos</a>
+          </li>
+          <li>
+            <a href="#services">Services</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+          similique unde, labore voluptatem fugiat repellat necessitatibus in
+          amet! Quas, repudiandae alias? Modi placeat, expedita ipsum maxime
+          nihil delectus totam molestias!
+        </p>
+        <div>
+          <button>Commencer</button>
+          <button>En savoir plus</button>
+        </div>
+      </section>
+      <section id="a-propos">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+          aliquam praesentium reprehenderit vel maiores earum et dolore veniam
+          est ab repellat, possimus accusamus illo recusandae, ad dignissimos
+          saepe voluptatibus magni. Cum dolore similique excepturi. Voluptate
+          quasi voluptas possimus alias vitae commodi. Animi itaque, maiores ab
+          earum sed dolores vitae facere aut exercitationem beatae temporibus
+          ducimus culpa error possimus placeat nostrum. Ad atque, earum modi
+          nesciunt cupiditate, libero, ipsa accusantium tempore explicabo
+          debitis obcaecati distinctio repudiandae. Modi eligendi ullam corporis
+          asperiores nesciunt sit minima dolores cum, molestiae dolorem atque,
+          vitae eos.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          excepturi quae enim magnam! Iure, consequuntur recusandae provident
+          quo ipsum dignissimos. Voluptatibus, corporis beatae debitis laborum
+          delectus sed dignissimos ut aperiam? Iusto quisquam voluptates
+          nostrum, tempore assumenda autem nemo doloribus! Quo doloribus ipsam
+          esse rem ipsum, illum tenetur odit itaque. Exercitationem ex,
+          blanditiis natus dolore necessitatibus ullam eos aperiam nesciunt
+          obcaecati. Commodi autem molestias nostrum quia vitae. Architecto
+          nihil amet ducimus quod eum sint ipsam, quidem deleniti aspernatur
+          perspiciatis velit eos temporibus qui suscipit cum odit molestiae vel
+          placeat laborum dignissimos. Dolore nemo tempore, dolorum a commodi
+          magni praesentium hic officia voluptas! Aut libero reprehenderit
+          perferendis architecto, id sapiente nostrum excepturi obcaecati
+          corporis, ullam voluptates deserunt totam. Repellendus vitae quibusdam
+          excepturi!
+        </p>
+      </section>
+      <section id="services">
+        <div class="images">
+          <img src="./images/henry-be-IicyiaPYGGI-unsplash.jpg" alt="image 1" />
+          <img
+            src="images/matthew-smith-Rfflri94rs8-unsplash.jpg"
+            alt="image 2"
+          />
+          <img
+            src="images/qingbao-meng-01_igFr7hd4-unsplash.jpg"
+            alt="image 3"
+          />
+          <img
+            src="images/robert-lukeman-_RBcxo9AU-U-unsplash.jpg"
+            alt="image 4"
+          />
+          <img src="images/v2osk-1Z2niiBPg5A-unsplash.jpg" alt="image 5" />
+        </div>
+      </section>
+    </main>
+    <script>
+      const images = document.querySelectorAll("img");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("appear");
+            } else {
+              entry.target.classList.remove("appear");
+            }
+          });
+        },
+        {
+          threshold: 0.3,
+        },
+      );
+
+      images.forEach((image) => observer.observe(image));
+    </script>
+  </body>
+</html>
