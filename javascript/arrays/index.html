@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,20 +15,24 @@
           placeholder="Entrer le nom d'un etudiant"
           name="Nom des etudiants"
           required
-          pattern="[a-zA-Z\s]+"
+          pattern="[a-zA-Z0-9\s]+"
         />
 
         <button type="submit">Ajouter</button>
       </form>
+      <aside>Total: 10</aside>
       <ul class="list"></ul>
     </section>
     <template id="item">
       <!-- Ceci va nous aider comme model de structure lors de l'ajoute d'un nom dans la liste -->
       <li class="student">
         <p></p>
-        <button class="delete-btn" aria-label="bouton de suppression">
-          ❌
-        </button>
+        <section class="buttons">
+          <button class="delete-btn" aria-label="bouton de suppression">
+            ❌
+          </button>
+          <button class="edit-btn" aria-label="bouton d'edition">✏️</button>
+        </section>
       </li>
     </template>
     <script src="index.js" type="module"></script>

@@ -2,8 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
 }
 
 html,
@@ -36,6 +37,7 @@ body {
   width: 100%;
   display: flex;
   gap: 0 1.5%;
+  padding-bottom: 15px;
 }
 
 .doc form button {
@@ -62,11 +64,19 @@ body {
   outline: 4px solid cyan;
 }
 
+.doc aside {
+  color: black;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
 .list {
   margin: 20px 0 0 0;
   padding: 10px 5px;
   font-size: 1.5rem;
-  height: 80.5svh;
+  height: 77svh;
   list-style-type: none;
   overflow-x: hidden;
   display: flex;
@@ -103,17 +113,24 @@ body {
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-.list .student .delete-btn {
-  position: absolute;
+.list .student p {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list .student .buttons button {
   font-size: 1rem;
-  right: 2%;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
   cursor: pointer;
   border: none;
+}
+
+.list .student .buttons .delete-btn {
+  margin-right: 20px;
 }
 
 @keyframes appear {

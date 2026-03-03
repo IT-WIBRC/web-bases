@@ -3,6 +3,7 @@ import { DBStorage } from "./db.js";
 const studentList = new Map();
 const studentNameInput = document.querySelector("input");
 const templateItem = document.getElementById("item");
+const totalName = document.querySelector("aside");
 
 /**
  * Rafraichir la liste
@@ -21,6 +22,7 @@ window.addEventListener("load", () => {
     studentList.set(student.id, student);
   }
   refreshList();
+  updateTotalNames();
 });
 
 /**
@@ -43,6 +45,28 @@ function deleteFromListById(listToRemoveFrom, studentId) {
   studentList.delete(studentId);
   listToRemoveFrom.querySelector(`[data-id="${studentId}"]`).remove();
   DBStorage.names = studentList;
+  updateTotalNames();
+}
+
+/**
+ * modifier le nom deja dans la liste
+ * @param {HTMLUListElement} listToEditFrom
+ * @param {string} studentId
+ * @param {string} newName
+ * @returns {void}
+ */
+function editNameById(listToEditFrom, studentId, newName) {
+  if (!studentList.has(studentId)) return;
+
+  const oldStudent = studentList.get(studentId);
+  studentList.set(studentId, {
+    ...oldStudent,
+    name: capitalize(newName),
+  });
+
+  listToEditFrom.querySelector(`[data-id="${studentId}"] > p`).textContent =
+    capitalize(newName);
+  DBStorage.names = [...studentList.values()];
 }
 
 /**
@@ -64,11 +88,27 @@ function insertStudentToDOMList(student, target) {
   item.querySelector("p").innerText = student.name;
   item.dataset.id = student.id;
 
-  const label = `Enlever l'etudiant ${student.name} de la liste`;
-  const deleteButton = item.querySelector("button");
-  deleteButton.setAttribute("aria-label", label);
-  deleteButton.setAttribute("title", label);
+  const deleteLabel = `Enlever l'etudiant ${student.name} de la liste`;
+  const deleteButton = item.querySelector("button.delete-btn");
+  deleteButton.setAttribute("aria-label", deleteLabel);
+  deleteButton.setAttribute("title", deleteLabel);
   deleteButton.onclick = () => deleteFromListById(target, student.id);
+
+  const editLabel = `Modifier l'etudiant ${student.name}`;
+  const editButton = item.querySelector("button.edit-btn");
+  editButton.setAttribute("aria-label", editLabel);
+  editButton.setAttribute("title", editLabel);
+  editButton.onclick = () => {
+    const newName = prompt(`Editer l'element avec le nom: (${student.name})`);
+    if (newName && canProceed(newName)) {
+      editNameById(target, student.id, newName);
+      return;
+    }
+
+    if (!newName) return;
+
+    alert("Impossible d'ajouter ce nom car invalide");
+  };
 
   target.appendChild(item);
   item.scrollIntoView(); // va scroller a l'emplacement ou l'element est place dans la page pour qu'il soit visible
@@ -80,7 +120,7 @@ function insertStudentToDOMList(student, target) {
  */
 function sortStudentList() {
   const sortedList = [...studentList.values()].sort((studentA, studentB) =>
-    studentA.name.toLowerCase().localeCompare(studentB.name.toLowerCase())
+    studentA.name.toLowerCase().localeCompare(studentB.name.toLowerCase()),
   );
   studentList.clear();
   sortedList.forEach((student) => {
@@ -90,7 +130,7 @@ function sortStudentList() {
 
 /**
  * Mettre la premiere lettre du nom en majuscule
- * @param {string} name mot a tranformer
+ * @param {string} name mot a transformer
  * @returns {string}
  */
 function capitalize(name) {
@@ -121,20 +161,38 @@ function addToStudentList(nameToAdd) {
 }
 
 /**
+ * Dire si l'operation peut continuer en validant le nom
+ * @param {string} name
+ * @returns {boolean}
+ */
+function canProceed(name) {
+  if (name.trim() === "") return false;
+
+  let hasThisStudentAlready = false;
+  studentList.forEach((student) => {
+    hasThisStudentAlready = student.name.toLowerCase() === name.toLowerCase();
+  });
+
+  const canContinue = name && !hasThisStudentAlready;
+  return canContinue;
+}
+
+/**
+ * Mettre a jour le nombre total d'etudiant
+ * @returns {void}
+ */
+function updateTotalNames() {
+  totalName.textContent =
+    "Total: " + `0${studentList.size}`.slice(-2) + " Etudiants";
+}
+
+/**
  * Manager le processus d'ajout un etudiant
  * @param {string} studentNameInput nom de l'etudiant
  * @returns {void}
  */
 function processAddition(studentNameInput) {
-  let hasThisStudentAlready = false;
-  studentList.forEach((student) => {
-    hasThisStudentAlready =
-      student.name.toLowerCase() === studentNameInput.toLowerCase();
-  });
-
-  const canAddToList = studentNameInput && !hasThisStudentAlready;
-
-  if (!canAddToList) {
+  if (!canProceed(studentNameInput)) {
     clearField();
     return;
   }
@@ -142,6 +200,7 @@ function processAddition(studentNameInput) {
   addToStudentList(studentNameInput);
   sortStudentList();
   refreshList();
+  updateTotalNames();
   clearField();
 }
 
