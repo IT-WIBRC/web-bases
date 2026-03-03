@@ -76,7 +76,7 @@ body {
   margin: 20px 0 0 0;
   padding: 10px 5px;
   font-size: 1.5rem;
-  height: 77svh;
+  max-height: 77svh;
   list-style-type: none;
   overflow-x: hidden;
   display: flex;
@@ -85,7 +85,7 @@ body {
 }
 
 .list::-webkit-scrollbar {
-  width: 7px; /* Definit la largeur du chemin */
+  width: 7px; /*Definit la largeur du chemin de la barre de scroll*/
 }
 
 /* Stylise le chemin suivit par la barre de scroll */

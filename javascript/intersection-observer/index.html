@@ -221,6 +221,31 @@
       </section>
     </main>
     <script>
+      /**
+       * Contrôleur d'apparition paresseuse utilisant `IntersectionObserver`
+       *
+       * Description :
+       *   Observe tous les éléments <img> de la page et bascule la classe CSS
+       *   "appear" quand chaque image dépasse le seuil de visibilité. Permet
+       *   d'animer les images au défilement (entrées/fade-in).
+       *
+       * Comportement :
+       *   - Quand une image observée est visible à au moins 40% dans la fenêtre,
+       *     la classe "appear" est ajoutée à l'élément.
+       *   - Quand la visibilité est inférieure à 40%, la classe est retirée.
+       *
+       * Configuration :
+       *   - threshold : 0.4 (40% de la cible visible)
+       *
+       * Remarques & recommandations :
+       *   - Fournir le CSS adapté pour la classe "appear" (opacity/transform/transition).
+       *   - Si une image doit apparaître une seule fois, appeler
+       *     observer.unobserve(entry.target) après avoir ajouté la classe.
+       *   - Garder le callback léger pour éviter le jank.
+       *
+       * Accessibilité :
+       *   - Respecter la préférence "prefers-reduced-motion" pour réduire/éviter les animations.
+       */
       const images = document.querySelectorAll("img");
 
       const observer = new IntersectionObserver(
@@ -234,7 +259,7 @@
           });
         },
         {
-          threshold: 0.3,
+          threshold: 0.4, 
         },
       );
 

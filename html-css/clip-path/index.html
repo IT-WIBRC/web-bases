@@ -1,71 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clip Path</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
+      /*
+        GUIDE DU CLIP-PATH POUR LES DÉBUTANTS
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0 10%;
-            height: 100dvh;
-        }
+        clip-path crée une région de découpe qui définit quelle partie d'un élément est visible.
+        Seul le contenu à l'intérieur de la forme découpée s'affiche ; tout ce qui est à l'extérieur est caché.
 
-        body div {
-            position: relative;
-            height: 300px;
-            width: 300px;
-        }
+        CAS D'USAGE COURANTS :
+        - Créer des formes personnalisées (étoiles, flèches, polygones)
+        - Rendre les images circulaires/arrondies sans border-radius
+        - Créer des éléments de conception décoratives
+        - Construire des mises en page complexes avec des formes irrégulières
+        - Créer des effets interactifs au survol avec des transitions de formes
+        */
 
-        .path {
-            background: #000;
-            clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+      }
 
-        .path::before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            clip-path: polygon(38% 6%, 38% 22%, 98% 22%, 98% 78%, 38% 78%, 38% 94%, 3% 50%);
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 10%;
+        height: 100dvh;
+      }
 
-        .other {
-            border: 4px solid black;
-            transform: rotate(45deg);
-        }
+      body div {
+        position: relative;
+        height: 300px;
+        width: 300px;
+      }
 
-        .other .contain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotate(-45deg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
+      /* Utilisation de clip-path avec polygon() pour créer une forme de flèche/pointeur */
+      .path {
+        background: #000;
+        clip-path: polygon(
+          40% 0%,
+          40% 20%,
+          100% 20%,
+          100% 80%,
+          40% 80%,
+          40% 100%,
+          0% 50%
+        );
+      }
+
+      /* Superposition de clip-paths pour créer des bordures/cadres décoratives */
+      .path::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        clip-path: polygon(
+          38% 6%,
+          38% 22%,
+          98% 22%,
+          98% 78%,
+          38% 78%,
+          38% 94%,
+          3% 50%
+        );
+      }
+
+      .other {
+        border: 4px solid black;
+        transform: rotate(45deg);
+      }
+
+      .other .contain {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-45deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+      }
+
+      .animate-none {
+        background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+        width: 300px;
+        height: 300px;
+        clip-path: circle(50% at 50% 50%);
+        animation: pulse 3s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          clip-path: circle(50% at 50% 50%);
         }
+        50% {
+          clip-path: circle(60% at 50% 50%);
+        }
+        100% {
+          clip-path: circle(50% at 50% 50%);
+        }
+      }
+
+      .animate-two {
+        background: rgb(48, 129, 129);
+        width: 300px;
+        height: 300px;
+        animation: shapeShift 6s infinite alternate;
+      }
+
+      @keyframes shapeShift {
+        0% {
+          clip-path: polygon(
+            50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%
+          );
+        }
+        14% {
+          clip-path: polygon(
+            50% 0%,
+            93% 25%,
+            100% 75%,
+            75% 100%,
+            25% 100%,
+            0% 75%
+          );
+        }
+        28% {
+          clip-path: circle(50% at 50% 50%);
+        }
+        42% {
+          clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        56% {
+          clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+        70% {
+          clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+        }
+        85% {
+          clip-path: polygon(
+            25% 0%,
+            75% 0%,
+            100% 50%,
+            75% 100%,
+            25% 100%,
+            0% 50%
+          );
+        }
+        100% {
+          clip-path: polygon(
+            50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%
+          );
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="path"></div>
     <div class="other">
-        <div class="contain">
-            <p>Contenu</p>
-        </div>
+      <div class="contain">
+        <p>Contenu</p>
+      </div>
     </div>
-</body>
+    <div class="animate-none"></div>
+    <div class="animate-two"></div>
+  </body>
 </html>
