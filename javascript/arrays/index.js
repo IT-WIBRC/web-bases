@@ -74,7 +74,8 @@ function editNameById(listToEditFrom, studentId, newName) {
  * @returns {HTMLLIElement} un item du DOM
  */
 const getItemCloned = () => {
-  return templateItem.content.cloneNode(true).querySelector("li");
+  const contentCloned = templateItem.content.querySelector("li");
+  return document.importNode(contentCloned, true);
 };
 
 /**

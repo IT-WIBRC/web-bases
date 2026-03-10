@@ -1,7 +1,7 @@
 <!--Annonce un document de type html-->
-<!DOCTYPE html>
+<!doctype html>
 <!-- Represente ton document lui meme et lui dit que son contenu est en langue anglaise. On peut la changer en `lang="fr"` au besoin -->
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Encodage, la liste des caractere accepte et interpretable par ta page. (UTF-8 est recommende car supporte plus de caractere de plusieur langue)-->
     <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
         /* propriete : valeur;  */
       }
 
-      /* selecteur d'element */
+      /* selecteur d'element: nom de d ela balise html */
       header {
       }
 
@@ -51,13 +51,17 @@
         /*(011)*/
         color: green;
         border: 1px solid red;
+        display: inline-block;
+        height: 100px;
+      }
+
+      /* (010) */
+      .titre {
+        color: red;
         height: 200px; /* Peut etre modifier car c'est element de type block */
       }
 
-      .titre {
-        color: red;
-      }
-
+      /* (010) */
       .titre {
         color: purple;
       }
@@ -68,13 +72,32 @@
        */
       .span {
         border: 2px solid blue;
-        /* width: 100%; */
+        width: 100%;
         /* height: 100px; */
 
         /* display: none; N'affiche pas l'element*/
         /* display: block; Donne un comportement `block` en un element*/
         /* display: inline; Donne un comportement `inline` a un element */
-        display: inline-block; /* Donne a la fois un comportement `block` et `inline` */
+        display: inline-block; /*Donne a la fois un comportement `block` et `inline` */
+      }
+
+      header {
+        p {
+          color: red;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+
+        input {
+          border: 1px solid gray;
+          padding: 5px 10px;
+          border-radius: 6px;
+        }
       }
     </style>
   </head>
@@ -84,25 +107,74 @@
     <header class="entete" id="haut" role="banner">
       <h1 class="titre">Mon titre (type block)</h1>
       <span class="span">Mon Span (type: inline)</span>
+
+      <p class="lorem">
+        Lorem ipsum <span class=""> sit amet consectetur </span> adipisicing
+        elit. Ducimus dolore ratione laborum voluptatem unde natus? Facilis
+        consequatur, eos eligendi, possimus amet nulla delectus, deleniti
+        veritatis sit facere voluptate tenetur. Aperiam?
+      </p>
+      <a
+        href="https://www.iut.univ-lille1.fr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >IUT</a
+      >
       <!-- (nav) Grand parent de la balise `li` et parent de `ul`-->
       <nav role="navigation">
         <ul>
           <!-- element enfant de la balise `nav` -->
-          <li></li>
+          <li>
+            <a href="#">Accueil</a>
+          </li>
           <!-- element enfant de la balise `ul` -->
           <!-- Elements jumeaux ou balise jumelles (possedent une balise ouvrante et fermante) -->
           <!-- <img /> Element orphelin (Possede juste une seule balise avec un `/` a la fin)-->
           <!-- <br /> Element orphelin -->
-          <li></li>
+          <li>
+            <a href="#">A propos</a>
+          </li>
           <li></li>
         </ul>
       </nav>
     </header>
     <main role="main">
       <!-- attributs: type, required -->
-      <input type="text" required="required" />
-      <input type="tel" />
-      <input type="email" />
+      <button aria-label="open/close"></button>
+      <form>
+        <label for="nom">Nom</label>
+        <input type="text" placeholder="text" required="required" id="nom" />
+        <input
+          type="search"
+          placeholder="search"
+          required="required"
+          aria-label="search something"
+        />
+        <input type="tel" placeholder="tel" />
+        <input type="email" placeholder="email" />
+        <select>
+          <option value="fr">Français</option>
+          <option value="en">Anglais</option>
+          <option value="es">Espagnol</option>
+        </select>
+
+        <!-- Choix multiple -->
+        <input type="checkbox" id="check" />
+        <label for="check">Accepter les termes et conditions</label>
+        <input type="checkbox" id="check2" />
+        <label for="check2">Accepter les termes et conditions</label>
+
+        <!-- Choix unique (doivent avoir la meme valeur dans l'attribut `name`) -->
+        <input type="radio" name="gender" id="male" />
+        <label for="male">Masculin</label>
+        <input type="radio" name="gender" id="female" />
+        <label for="female">Féminin</label>
+
+        <button type="submit">Envoyer</button>
+      </form>
     </main>
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2024</p>
+    </footer>
   </body>
 </html>
