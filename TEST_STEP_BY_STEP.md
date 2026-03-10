@@ -1,15 +1,16 @@
-## **Test Semaine 1 - Bases Web & HTML/CSS**
+# **Test Semaine 1 - Bases Web & HTML/CSS**
 
-### **Durée :** 30 minutes
-#### **Objectif :** Vérifier la compréhension des fondamentaux
+## **Durée :** 30 minutes
+
+### **Objectif :** Vérifier la compréhension des fondamentaux
 
 ### **Partie 1 : Vrai/Faux avec explication (10 min)**
 
-1. `<div>` et `<span>` sont interchangeables ❌
-2. `display: flex` se met sur l'élément parent ✅
-3. `px` est meilleur que `rem` pour le responsive ❌
-4. `rgb(255, 0, 0)` donne du rouge ✅
-5. Une balise `<img>` doit toujours avoir un attribut `alt` ✅
+1. `<div>` et `<span>` sont interchangeables
+2. `display: flex` se met sur l'élément parent
+3. `px` est meilleur que `rem` pour le responsive
+4. `rgb(255, 0, 0)` donne du rouge
+5. Une balise `<img>` doit toujours avoir un attribut `alt`
 
 **Pour chaque réponse, explique POURQUOI en 1 phrase.**
 
@@ -229,6 +230,7 @@ Crée un bouton qui au survol :
 ## **Test Semaine 6 - Intégration Complète**
 
 ### **Durée :** 75 minutes
+
 #### **Projet :** Galerie d'images interactive
 
 ### **Requirements :**
@@ -252,7 +254,7 @@ const images = [
 
 ### **Architecture attendue :**
 
-```
+```txt
 index.html
 style.css
 app.js
@@ -285,21 +287,18 @@ app.js
 **À la fin de la semaine 6, l'étudiant doit pouvoir :**
 
 1. **HTML/CSS (70%+)**
-
    - Créer une page responsive
    - Utiliser Flexbox/Grid
    - Styliser formulaires
    - Animer des interactions
 
 2. **JavaScript (60%+)**
-
    - Manipuler le DOM
    - Gérer les événements
    - Travailler avec tableaux/objets
    - Utiliser localStorage
 
 3. **Git (50%+)**
-
    - Commit régulier
    - Push sur GitHub
    - Résoudre conflits simples
@@ -319,7 +318,7 @@ app.js
 
 ### **Exemples de Feedback :**
 
-```
+```txt
 ✅ Points forts :
 - Code bien structuré
 - Bonne utilisation Flexbox

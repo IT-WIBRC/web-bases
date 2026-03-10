@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barre de navigation responsive model 1</title>
+    <title>Barre de navigation 1</title>
     <style>
       * {
         padding: 0;
         margin: 0;
         font-family:
-          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-          Arial, sans-serif;
+          "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       }
 
       html,
@@ -27,85 +27,196 @@
         color: white;
         position: relative;
         z-index: 0;
+
+        .logo {
+          text-transform: uppercase;
+        }
+
+        .burger {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          background: transparent;
+          border: none;
+          justify-content: space-between;
+          height: 28px;
+          width: 40px;
+          z-index: 2;
+          transition: 0.5s;
+          cursor: pointer;
+
+          span {
+            display: block;
+            width: 40px;
+            height: 15%;
+            background-color: #fff;
+            transition: 0.5s;
+            border-radius: 6px;
+          }
+
+          & + .menus {
+            transform: translateX(100%);
+            transition: 0.5s;
+          }
+
+          &.open {
+            transform: translate(-240px, 20%) scale(0.7);
+
+            &:hover > span {
+              background-color: rgb(228, 54, 54);
+            }
+
+            & + .menus {
+              transform: translateX(0);
+            }
+
+            span {
+              &:nth-child(2) {
+                opacity: 0;
+              }
+
+              &:nth-child(1) {
+                transform: translate(0, 12px) rotate(-45deg);
+              }
+
+              &:nth-child(3) {
+                transform: translate(0, -12px) rotate(45deg);
+              }
+            }
+          }
+        }
+
+        .navigation {
+          position: relative;
+        }
+
+        .menus {
+          position: absolute;
+          background-color: #082c45;
+          list-style-type: none;
+          padding: 5px;
+          width: 300px;
+          height: 100dvh;
+          right: -15px;
+          top: -15px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem 0;
+          z-index: 1;
+
+          li {
+            a {
+              text-decoration: none;
+              color: white;
+              font-size: 1.4rem;
+            }
+          }
+        }
       }
 
-      .burger {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        background: transparent;
-        border: none;
-        justify-content: space-between;
-        height: 28px;
-        width: 40px;
-        z-index: 2;
-        transition: 0.5s;
-        cursor: pointer;
-      }
+      @media screen and (min-width: 1024px) {
+        header {
+          height: 50px;
+          align-items: center;
+          padding-inline: 10rem;
 
-      .burger.open {
-        transform: translate(-240px, 20%) scale(0.7);
-      }
+          .logo {
+            font-size: 2rem;
+          }
 
-      .burger.open:hover > span {
-        background-color: rgb(228, 54, 54);
-      }
+          .burger {
+            display: none;
+          }
 
-      .burger span {
-        display: block;
-        width: 40px;
-        height: 15%;
-        background-color: #fff;
-        transition: 0.5s;
-        border-radius: 6px;
-      }
+          .burger + .menus {
+            transform: translateX(0);
+          }
 
-      .burger + .menus {
-        transform: translateX(100%);
-        transition: 0.5s;
-      }
+          .menus {
+            position: relative;
+            height: auto;
+            inset: auto;
+            flex-direction: row;
+            gap: 0 2.5rem;
+            width: auto;
+            background-color: transparent;
 
-      .burger.open + .menus {
-        transform: translateX(0);
-      }
+            li {
+              &:nth-child(1) > a::before {
+                content: "🏠 ";
+              }
 
-      .open span:nth-child(2) {
-        opacity: 0;
-      }
+              &:nth-child(2) > a::before {
+                content: "ℹ️ ";
+              }
 
-      .open span:nth-child(1) {
-        transform: translate(0, 12px) rotate(-45deg);
-      }
+              &:nth-child(3) > a::before {
+                content: "📱 ";
+              }
 
-      .open span:nth-child(3) {
-        transform: translate(0, -12px) rotate(45deg);
-      }
+              a {
+                font-size: 1.4rem;
+                transition-duration: 0.4s;
+                transition-property: color, font-size;
+                text-transform: uppercase;
+                font-weight: bold;
 
-      .navigation {
-        position: relative;
-      }
+                &:hover {
+                  font-size: 1.6rem;
+                  color: rgb(4, 228, 105);
+                }
+              }
+            }
+          }
+        }
 
-      .menus {
-        position: absolute;
-        background: #082c45;
-        list-style-type: none;
-        padding: 5px;
-        width: 300px;
-        height: 100dvh;
-        right: -15px;
-        top: -15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem 0;
-        z-index: 1;
-      }
+        .intro {
+          padding: 2rem 10rem;
+          text-justify: distribute;
+          text-align: center;
+          font-size: 1.8rem;
+          height: calc(60vh - 50px);
+          display: flex;
+          align-items: center;
 
-      .menus li a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.4rem;
+          p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            line-height: 3rem;
+
+            &::first-letter {
+              font-size: 3rem;
+              font-weight: bold;
+              color: rgb(4, 228, 105);
+            }
+
+            &::first-line {
+              text-transform: uppercase;
+              font-weight: 600;
+            }
+
+            &::selection {
+              background-color: rgb(64, 160, 5);
+              color: white;
+            }
+
+            q::before {
+              content: open-quote;
+              font-size: 3rem;
+              font-weight: bold;
+              color: rgb(8, 165, 131);
+            }
+
+            q::after {
+              content: close-quote;
+              font-size: 3rem;
+              font-weight: bold;
+              color: rgb(8, 165, 131);
+            }
+          }
+        }
       }
     </style>
   </head>
@@ -120,21 +231,33 @@
         </button>
         <ul class="menus">
           <li>
-            <a href="#">Menu 1</a>
+            <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Menu 2</a>
+            <a href="#">About</a>
           </li>
           <li>
-            <a href="#">Menu 3</a>
+            <a href="#">Contact</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <div></div>
-      <div></div>
-      <div></div>
+      <section class="intro">
+        <p>
+          <q>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,
+            amet consectetur molestias fugit nostrum, eveniet culpa dignissimos
+            quae facere, voluptatem natus impedit rerum unde possimus vel optio
+            quaerat laboriosam minima! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptas, quisquam. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Voluptas, quisquam. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Voluptas, quisquam. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            quisquam.
+          </q>
+        </p>
+      </section>
     </main>
     <script>
       const burger = document.querySelector(".burger");
