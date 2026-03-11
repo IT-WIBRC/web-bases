@@ -1,0 +1,266 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #000;
+  color: white;
+  position: relative;
+  z-index: 0;
+
+  .logo {
+    text-transform: uppercase;
+  }
+
+  .burger {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    justify-content: space-between;
+    height: 28px;
+    width: 40px;
+    z-index: 2;
+    transition: 0.5s;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 40px;
+      height: 15%;
+      background-color: #fff;
+      transition: 0.5s;
+      border-radius: 6px;
+    }
+
+    & + .menus {
+      transform: translateX(100%);
+      transition: 0.5s;
+    }
+
+    &.open {
+      transform: translate(-240px, 20%) scale(0.7);
+
+      &:hover > span {
+        background-color: rgb(228, 54, 54);
+      }
+
+      & + .menus {
+        transform: translateX(0);
+      }
+
+      span {
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(1) {
+          transform: translate(0, 12px) rotate(-45deg);
+        }
+
+        &:nth-child(3) {
+          transform: translate(0, -12px) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .navigation {
+    position: relative;
+  }
+
+  .menus {
+    position: absolute;
+    background-color: #082c45;
+    list-style-type: none;
+    padding: 5px;
+    width: 300px;
+    height: 100dvh;
+    right: -15px;
+    top: -15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 0;
+    z-index: 1;
+
+    li {
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 50px;
+    align-items: center;
+    padding-inline: 10rem;
+
+    .logo {
+      font-size: 2rem;
+    }
+
+    .burger {
+      display: none;
+    }
+
+    .burger + .menus {
+      transform: translateX(0);
+    }
+
+    .menus {
+      position: relative;
+      height: auto;
+      inset: auto;
+      flex-direction: row;
+      gap: 0 2.5rem;
+      width: auto;
+      background-color: transparent;
+
+      li {
+        &:nth-child(1) > a::before {
+          content: "🏠 ";
+        }
+
+        &:nth-child(2) > a::before {
+          content: "ℹ️ ";
+        }
+
+        &:nth-child(3) > a::before {
+          content: "📱 ";
+        }
+
+        a {
+          font-size: 1.4rem;
+          transition-duration: 0.4s;
+          transition-property: color, font-size;
+          text-transform: uppercase;
+          font-weight: bold;
+
+          &:hover {
+            font-size: 1.6rem;
+            color: rgb(4, 228, 105);
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    min-height: calc(100vh - 50px);
+
+    aside {
+      display: flex;
+      align-items: center;
+      background-color: rgb(240, 226, 209);
+
+      img {
+        transform: rotate(90deg) scale(1.4);
+      }
+    }
+
+    .intro {
+      padding: 2rem 8rem;
+      text-justify: distribute;
+      text-align: center;
+      min-height: 80%;
+      background-color: rgb(245, 175, 175);
+      font-size: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        line-height: 3rem;
+
+        &::first-letter {
+          font-size: 3rem;
+          font-weight: bold;
+          color: rgb(4, 228, 105);
+        }
+
+        &::first-line {
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+
+        &::selection {
+          background-color: rgb(64, 160, 5);
+          color: white;
+        }
+
+        q::before {
+          content: open-quote;
+          font-size: 3rem;
+          font-weight: bold;
+          color: rgb(8, 165, 131);
+        }
+
+        q::after {
+          content: close-quote;
+          font-size: 3rem;
+          font-weight: bold;
+          color: rgb(8, 165, 131);
+        }
+      }
+
+      .move-on {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+
+        a {
+          padding: 1.2rem 10rem;
+          border-radius: 6px;
+          font-size: 1.6rem;
+          font-style: italic;
+          text-decoration: none;
+          border: none;
+          background-color: black;
+          color: white;
+          cursor: pointer;
+          transition-duration: 0.4s;
+          transition-property: background-color, transform;
+          transform: skewX(10deg);
+
+          &:hover {
+            background-color: rgb(10, 67, 111);
+            transform: scale(1.1) skewX(15deg);
+          }
+
+          span {
+            font-size: 2rem;
+            transition-duration: 0.4s;
+            display: inline-block;
+          }
+
+          &:hover span {
+            transform: translateX(0.8rem);
+          }
+        }
+      }
+    }
+  }
+}
