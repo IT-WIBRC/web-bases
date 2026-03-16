@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="navigation.css" />
   </head>
   <body>
-    <header>
+    <header class="page-header">
       <h2 class="logo">Logo</h2>
       <nav class="navigation">
         <button class="burger">
@@ -17,13 +17,16 @@
         </button>
         <ul class="menus">
           <li>
-            <a href="#">Home</a>
+            <a href="#home">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="#about">About</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
@@ -32,28 +35,149 @@
       <aside>
         <img src="devia.jpg" alt="" />
       </aside>
-      <section class="intro">
-        <p>
-          <q>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,
-            amet consectetur molestias fugit nostrum, eveniet culpa dignissimos
-            quae facere, voluptatem natus impedit rerum unde possimus vel optio
-            quaerat laboriosam minima! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Voluptas, quisquam. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Voluptas, quisquam. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Voluptas, quisquam. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-            quisquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Pariatur exercitationem iusto, soluta laborum blanditiis a quas
-            veritatis quisquam dolores eveniet iure, aut maiores deserunt hic
-            illo dicta corporis adipisci temporibus. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Repellendus ratione nostrum a
-            repudiandae eos aspernatur, aperiam sunt aliquid laborum odio in ad
-            quibusdam saepe, temporibus unde. Impedit quis fugit nobis?
-          </q>
-        </p>
-        <section class="move-on">
-          <a href="#">Next section <span>&rarr;</span></a>
+      <section class="wrapper">
+        <section class="intro" id="home">
+          <p>
+            <q>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,
+              amet consectetur molestias fugit nostrum, eveniet culpa
+              dignissimos quae facere, voluptatem natus impedit rerum unde
+              possimus vel optio quaerat laboriosam minima! Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Voluptas, quisquam. Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              quisquam. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptas, quisquam. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Voluptas, quisquam. Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Pariatur exercitationem iusto,
+              soluta laborum blanditiis a quas veritatis quisquam dolores
+              eveniet iure, aut maiores deserunt hic illo dicta corporis
+              adipisci temporibus. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Repellendus ratione nostrum a repudiandae eos
+              aspernatur, aperiam sunt aliquid laborum odio in ad quibusdam
+              saepe, temporibus unde. Impedit quis fugit nobis?
+            </q>
+          </p>
+          <section class="move-on">
+            <a href="#">Next section <span>&rarr;</span></a>
+          </section>
+        </section>
+        <section class="company-team" id="about">
+          <header>
+            <h2>Our Team</h2>
+            <p class="description">
+              Meet the talented individuals who make our company great.
+            </p>
+          </header>
+          <div class="team">
+            <article class="person">
+              <div class="photo">
+                <img src="wibrc.jpg" alt="Person 1" />
+              </div>
+              <div class="information">
+                <h3 class="poste">sr. software engineer</h3>
+                <h4 class="name">Marcus Bennet</h4>
+                <p class="p-description">
+                  Specializes in building scalable web applications and
+                  improving performance across modern front-end architecture
+                </p>
+              </div>
+            </article>
+            <article class="person">
+              <div class="photo">
+                <img src="wibrc.jpg" alt="Person 1" />
+              </div>
+              <div class="information">
+                <h3 class="poste">strategic communications specialist</h3>
+                <h4 class="name">Marcia Thompson</h4>
+                <p class="description">
+                  Specializes in crafting compelling narratives and managing
+                  public relations campaigns to enhance brand visibility and
+                  reputation.
+                </p>
+              </div>
+            </article>
+            <article class="person">
+              <div class="photo">
+                <img src="wibrc.jpg" alt="Person 1" />
+              </div>
+              <div class="information">
+                <h3 class="poste">Project Manager</h3>
+                <h4 class="name">John Doe</h4>
+                <p class="description">
+                  Specializes in leading cross-functional teams to deliver
+                  projects on time and within budget, ensuring successful
+                  project outcomes and client satisfaction.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="services" id="services">
+          <header>
+            <h2>Our Services</h2>
+            <p class="description">
+              We offer a wide range of services to meet your needs, including
+              web development, digital marketing, and consulting.
+            </p>
+          </header>
+          <div class="list">
+            <article>
+              <h3>Web Development</h3>
+              <p>
+                Our web development team creates responsive and user-friendly
+                websites tailored to your business goals, ensuring a seamless
+                online presence.
+              </p>
+              <button>Learn More</button>
+            </article>
+            <article>
+              <h3>Digital Marketing</h3>
+              <p>
+                Our digital marketing experts develop and execute strategies to
+                increase your online visibility, drive traffic, and boost
+                conversions through various channels.
+              </p>
+              <button>Learn More</button>
+            </article>
+            <article>
+              <h3>Consulting</h3>
+              <p>
+                Our consulting services provide expert guidance and strategic
+                advice to help you navigate challenges, optimize operations, and
+                achieve sustainable growth in your industry.
+              </p>
+              <button>Learn More</button>
+            </article>
+          </div>
+        </section>
+        <section class="contact" id="contact">
+          <header>
+            <h2>Contact Us</h2>
+            <p class="description">
+              Get in touch with us for inquiries, support, or to discuss how we
+              can help your business grow.
+            </p>
+          </header>
+          <section class="addresses">
+            <address>
+              <p>
+                <strong>Email</strong>
+                <a href="mailto:info@company.com">info@company.com</a>
+              </p>
+            </address>
+            <address>
+              <p>
+                <strong>Phone</strong>
+                <a href="tel:+237683899878">(+237) 683-899-878</a>
+              </p>
+            </address>
+            <address>
+              <p>
+                <strong>Address</strong>
+                <a href="#">123 Main Street, Anytown, Cameroon</a>
+              </p>
+            </address>
+          </section>
         </section>
       </section>
     </main>
