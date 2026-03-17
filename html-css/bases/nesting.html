@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS imbriquee</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: bisque;
+      }
+
+      section {
+        border: 20px solid brown;
+        margin-inline: auto;
+        margin-block: 0;
+        max-width: 60vw;
+
+        p {
+          font-family:
+            "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+          color: chocolate;
+
+          span {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: black;
+          }
+        }
+
+        h1 {
+          font-size: 2rem;
+          color: blue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Titre principal</h1>
+      <p>
+        Lorem ipsum, <span>dolor sit amet</span> consectetur adipisicing elit.
+        Cumque laborum dicta incidunt sint voluptatem voluptate unde quis dolore
+        vel dolorem vitae sunt eveniet natus dolores, at consectetur, expedita
+        facere eum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ipsum eaque est officia neque ratione, placeat animi harum vitae facilis
+        provident id beatae illo necessitatibus consequatur sit quibusdam
+        voluptatibus blanditiis perspiciatis.
+      </p>
+      <div>
+        <h2>Titre secondaire</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          eum necessitatibus praesentium dignissimos cum accusamus enim cumque
+          aperiam, iste ratione commodi eos deserunt pariatur doloremque
+          possimus optio perferendis quis perspiciatis? Id maiores alias culpa
+          laboriosam distinctio, pariatur officiis quam repellat excepturi atque
+          exercitationem obcaecati facere saepe sunt reiciendis ut ad doloremque
+          odit veniam aliquam ex molestias. Quasi labore est repudiandae.
+          Adipisci nobis distinctio nihil expedita sit molestiae, placeat
+          voluptatum a quia sequi velit maxime quos nam beatae dolore dolor,
+          labore praesentium soluta eos doloribus. Ut ea dolorem ipsum quia
+          quae?
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

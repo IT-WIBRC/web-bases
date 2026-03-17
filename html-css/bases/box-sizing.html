@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Sizing example</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        background-color: blanchedalmond;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem 0;
+        font-size: 2rem;
+      }
+
+      .container {
+        border: 10px solid cadetblue;
+        height: 200px;
+        width: 300px;
+      }
+
+      .container div::after {
+        content: attr(class);
+      }
+
+      /* (id,class,element): (011) */
+      /* .container div {
+        box-sizing: content-box;
+      } */
+
+      .content-box {
+        box-sizing: content-box;
+        background: cyan;
+        border: 10px solid brown;
+        padding: 10px;
+        width: 100%;
+      }
+
+      /* (010) */
+      .border-box {
+        box-sizing: border-box;
+        background: cyan;
+        border: 10px solid brown;
+        padding: 10px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-box"></div>
+    </div>
+    <div class="container">
+      <div class="border-box"></div>
+    </div>
+  </body>
+</html>
