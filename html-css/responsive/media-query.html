@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query introduction</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      /* ----------------- MOBILE FIRST APPROACH ------------------------- */
+
+      /* Le css de base sans media query est pour le mobile */
+      #page {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-areas:
+          "head"
+          "nav"
+          "main"
+          "foot";
+        grid-template-rows: 50px 40px 1fr 50px;
+        grid-template-columns: 1fr;
+
+        /* Selectionne les element enfant direct de l'element ayant l'id `page` et applique ses styles */
+        & > * {
+          text-align: center;
+          font-size: 1.5rem;
+        }
+
+        header {
+          grid-area: head; /* Nom attribue au header (en-tete) */
+          background-color: #8ca0ff;
+        }
+
+        nav {
+          grid-area: nav; /* Nom attribue a la navigation */
+          background-color: #ffa08c;
+        }
+
+        main {
+          grid-area: main; /* Nom attribue a l'emplacement du contenu principal */
+          background-color: #ffff64;
+        }
+
+        footer {
+          grid-area: foot; /* Nom attribue au pied de page */
+          background-color: #8cffa0;
+        }
+      }
+
+      /* Na s'appliquera que pour les ecran de largeur minimale `1024px` */
+      @media screen and (min-width: 1024px) {
+        #page {
+          grid-template-areas:
+            "head head"
+            "nav main"
+            "foot foot"; /* Utilise le nom definit par le `grid-area` dans l'element */
+          grid-template-rows: 50px 1fr 50px;
+          grid-template-columns: 250px 1fr;
+        }
+      }
+
+      /* Jl prendre le dessus sur celui precedemment ecrit a `1024px`. Ne s'appliquera que pour les ecran de largeur minimale `1280px` */
+      @media screen and (min-width: 1280px) {
+        #page {
+          /* Definit le positionnement de chaque element en se basant sur le nom attribue avec la propriete `grid-area` sur la grille definit */
+          grid-template-areas:
+            "head"
+            "nav"
+            "main"
+            "foot"; /* On peut utiliser le `.`aussi pour marquer un espace vide */
+          grid-template-rows: 30px 30px 1fr 80px;
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <header>Header</header>
+      <nav>Navigation</nav>
+      <main>Main area</main>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
