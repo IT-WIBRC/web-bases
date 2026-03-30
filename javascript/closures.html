@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closures en JS</title>
+    </head>
+
+    <body>
+        <script>
+            // Closures: c'est une fonction qui a accès a des variables d'une portée externe même après que la fonction externe ait été exécutée. Les closures permettent de créer des fonctions avec un état privé et de maintenir des données entre les appels de fonction. A chaque fois qu'une fonction est créée, une closure est également créée.
+
+            // La closure "se souvient" de l'environnement dans lequel elle a été créée, y compris les variables et les paramètres de la fonction externe. Mais toute fonction se souvient de son environnement de declaration, même si elle est exécutée en dehors de cet environnement. C'est ce qui rend les closures si puissantes et utiles en JavaScript.
+
+            function createCounter() {
+                let count = 0; // variable privée accessible uniquement dans la fonction createCounter
+
+                return function () { // cette fonction est une closure qui a accès à la variable count
+                    count++;
+                    console.log(count);
+                }
+            }
+
+            const counter = createCounter(); // counter est une closure qui a accès à la variable count
+
+            counter(); // 1
+            counter(); // 2
+            counter(); // 3
+
+            const anotherCounter = createCounter(); // anotherCounter est une nouvelle closure avec sa propre variable count
+
+            anotherCounter(); // 1
+            anotherCounter(); // 2
+
+            // En simple terme, une closure est une fonction qui "se souvient" de l'environnement dans lequel elle a été créée, même après que cet environnement ait été détruit. Cela permet de créer des fonctions avec un état privé et de maintenir des données entre les appels de fonction. Les closures sont largement utilisées en JavaScript pour créer des fonctions d'ordre supérieur, des fonctions de rappel, et pour gérer l'encapsulation des données.
+
+
+
+            // Simple exemple est avec les modules ou je peux declarer une variable hors de la fonction, et la fonction interne peut accéder a cette variable meme apres etre exportée et utilisée dans un autre fichier.
+
+            import { multiplicationPar } from "./portee/utils.js";
+            multiplicationPar(4, 5);// Cette fonction malgre qu'elle soit exportee, a acces a la variable `TEXTE` qu'elle utilise pour afficher le resultat dans la console. Donc, elle a toujours acces a son environnement de declaration, meme si elle est utilisée dans un autre fichier. C'est ca la magie des closures en JavaScript.
+        </script>
+    </body>
+
+</html>
