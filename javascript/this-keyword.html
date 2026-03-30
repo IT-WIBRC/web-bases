@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS `this` keyword</title>
+</head>
+<body>
+    <script>
+        // `this` keyword: c'est un mot-clé qui fait reference a l'objet courant dans lequel il est utilisé. Il peut se comporter de facon differente selon le contexte d'execution.
+
+        // Dans une fonction normale, `this` fait reference a l'objet global (window dans les navigateurs)
+        function showThis() {
+            console.log(this); // window
+        }
+        showThis();
+
+        // Dans une methode d'un objet, `this` fait reference a l'objet lui-meme
+        const obj = {
+            name: "Devia",
+            showThis: function() {
+                console.log(this); // obj
+            },
+            showThisArrow: () => {
+                console.log(this); // window (car les fonctions fléchées n'ont pas leur propre `this`)
+            }
+        }
+        obj.showThis();
+        obj.showThisArrow();
+
+        const outerShowThis = obj.showThis; // `this` dans cette fonction fera reference a l'objet global (window) car elle est appelée en dehors de l'objet
+        outerShowThis(); // window
+
+        // Dans une classe, `this` fait reference a l'instance de la classe
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            showThis() {
+                console.log(this); // instance de Person
+            }
+        }
+        const person1 = new Person("Devia");
+        person1.showThis();
+
+        // Dans une fonction fléchée, `this` fait reference au contexte d'execution dans lequel elle a été définie
+        const arrowFunction = () => {
+            console.log(this); // window (car elle est définie dans le contexte global)
+        }
+        arrowFunction();
+        /*
+         * contextes d'execution (Ou la fonction est appelée pour une fonction normale ou une methode d'objet, ou la classe est instanciée pour une classe, et pour une fonction fléchée, c'est ou elle est définie):
+
+
+         * 1. Global context: `this` fait reference a l'objet global (window dans les navigateurs)
+         * 2. Object method context: `this` fait reference a l'objet lui-meme
+         * 3. Class context: `this` fait reference a l'instance de la classe
+         * 4. Arrow function context: `this` fait reference au contexte d'execution dans lequel elle a été définie
+         * 5. Event handler context: `this` fait reference a l'element qui a déclenché l'event
+         * 6. Strict mode: dans le mode strict, `this` fait reference a undefined dans les fonctions normales et les méthodes d'objets, et il fait reference au contexte d'execution dans les fonctions fléchées
+         * 7. Call, apply, bind: ces méthodes permettent de définir explicitement la valeur de `this` dans une fonction
+         *
+        */
+    </script>
+</body>
+</html>

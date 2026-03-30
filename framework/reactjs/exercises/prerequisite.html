@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js exercises - Prerequisietes for Reactjs (Solutions)</title>
+</head>
+<body>
+    <script>
+        // 1. Fonction somme de deux nombres
+        function somme(nombre1, nombre2) {
+            return nombre1 + nombre2;
+        }
+        console.log("1. Sommes: ", somme(5, 10)); // 15
+
+        // 2. Filtrer pairs: Creer un tableau de nombres et filtrer les nombres pairs
+        const nombres = [10, 23, 34, 88, 51, 64, 72, 89, 94, 10];
+        const pairs = nombres.filter(nombre => nombre % 2 === 0);
+        console.log("2. Nombres pairs: ", pairs); // [10, 34, 88, 64, 72, 94, 10]
+
+        // 3. Object user: Creer un objet user avec des propriétés comme nom, age, email et affiche les informations de l'utilisateur
+        const user = {
+            nom: "Devia",
+            age: 20,
+            email: "Devia@gamil.com",
+        }
+        console.log("3. User: ", user.age, user.nom, user.email); // 3. User:   20, "Devia", "Devia@gamil.com"
+
+        // 4. Promesse: Ecrit fetchDate qui simule un appel API avec setTimeout et retourne une promesse qui se résout avec une date actuelle après 2 secondes
+        function fetchDate() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(new Date());
+                }, 2000);
+            });
+        }
+        fetchDate().then(date => console.log("4. Date actuelle: ", date)); // Date actuelle:  (après 2 secondes)
+
+        // 5. Destructuration: Creer un objet personne avec des propriétés nom, age, adresse et utiliser la destructuration pour extraire les valeurs dans des variables séparées
+        const personne = {
+            nom: "Devia",
+            age: 20,
+            adresse: "123 rue principale"
+        }
+        const { nom, age, adresse } = personne;
+        console.log("5. Destructuration: ", nom, age, adresse); // "Devia", 20, "123 rue principale"
+    </script>
+</body>
+</html>

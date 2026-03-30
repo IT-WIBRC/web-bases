@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Destructuring</title>
+</head>
+<body>
+    <script>
+        // Destructuration: c'est une syntaxe qui permet d'extraire des valeurs d'un tableau ou d'un objet et de les assigner a des variables de facon plus concise et lisible
+
+        // Destructuration d'un objet
+        const eleve = {
+            nom: "Devia",
+            age: 20,
+            classe: "2eme année",
+            email: ""
+        }
+        const { nom, age, classe } = eleve; // C'est comme creer des variables et les assigner a des valeurs de l'objet eleve
+        console.log(nom, age, classe); // Devia 20 2eme année
+
+        // Destructuration dans les parametres d'une fonction
+        const displayInformation = ({ nom, age, classe }) => {
+            console.log(nom, age, classe);
+        }
+        displayInformation(eleve); // Devia 20 2eme année
+
+        // Destructuration d'un tableau
+        const [a, b, c] = [1, 2, 3];
+        console.log(a, b, c); // 1 2 3
+
+        // Destructuration avec des valeurs par defaut
+        const { nom: nomEleve, age: ageEleve, classe: classeEleve, email: emailEleve = "email non fourni" } = eleve;
+        console.log(nomEleve, ageEleve, classeEleve, emailEleve);
+
+        // Destructuration avec le reste des elements
+        const { nom: nomEleve2, ...rest } = eleve;
+        console.log(nomEleve2); // Devia
+        console.log(rest); // { age: 20, classe: "2eme année", email: "" }
+
+
+        // Destructuration d'un tableau avec le reste des elements
+        const [x, ...restArray] = [1, 2, 3, 4, 5];
+        console.log(x); // 1
+        console.log(restArray); // [2, 3, 4, 5]
+
+        // Destructuration dans les parametres d'une fonction avec le reste des elements
+        const displayInformationWithRest = ({ nom, ...rest }) => {
+            console.log(nom); // Devia
+            console.log(rest); // { age: 20, classe: "2eme année", email: "" }
+        }
+        displayInformationWithRest(eleve);
+
+        // Destructuration imbriquee
+        const eleve2 = {
+            nom: "Devia",
+            age: 20,
+            classe: "2eme année",
+            adresse: {
+                rue: "123 rue principale",
+                ville: "Paris",
+                codePostal: "75000"
+            }
+        }
+        const { nom: nomEleve22, adresse: { rue, ville, codePostal } } = eleve2;
+        console.log(nomEleve22); // Devia
+        console.log(rue); // 123 rue principale
+        console.log(ville); // Paris
+        console.log(codePostal); // 75000
+
+        // Destructuration dans les parametres d'une fonction avec des valeurs par defaut
+        const displayInformationWithDefault = ({ nom, age, classe, email = "email non fourni" }) => {
+            console.log(nom, age, classe, email);
+        }
+        displayInformationWithDefault(eleve);
+
+        /* Conclusion: la destructuration est une syntaxe puissante qui permet d'extraire des valeurs d'un tableau ou d'un objet de facon concise et lisible, ce qui rend le code plus facile a comprendre et a maintenir. Il est important de maitriser cette syntaxe pour ecrire du code JavaScript moderne et efficace. Il est egalement important de noter que la destructuration peut etre utilisee dans les parametres d'une fonction pour extraire des valeurs d'un objet ou d'un tableau passe en argument, ce qui rend le code plus propre et plus facile a lire.
+
+        Il est aussi utiliser dans beaucoup de bibliotheque et framework JavaScript moderne comme React, Vue, Angular, etc. pour extraire des valeurs d'un objet ou d'un tableau de facon concise et lisible.
+        */
+    </script>
+</body>
+</html>
