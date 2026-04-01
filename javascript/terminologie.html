@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Terminology en JS</title>
+    </head>
+
+    <body>
+        <script>
+            // En JavaScript, il existe plusieurs termes clés qui sont essentiels pour comprendre le langage et son fonctionnement. Voici quelques-uns des termes les plus importants:
+
+            // 1. Variable: Une variable est un conteneur pour stocker des données. En JavaScript, vous pouvez déclarer une variable à l'aide de mots-clés tels que var, let ou const. Les variables peuvent contenir différents types de données, comme des nombres, des chaînes de caractères, des objets, etc.
+
+            // 2. Fonction: Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique. Elle peut prendre des paramètres et retourner des valeurs. Les fonctions sont utilisées pour structurer le code et favoriser la réutilisation.
+
+            // 3. Objet: Un objet est une collection de propriétés et de méthodes. Les propriétés sont des valeurs associées à l'objet, tandis que les méthodes sont des fonctions qui agissent sur l'objet. Les objets sont fondamentaux en JavaScript et permettent de modéliser des entités du monde réel.
+
+            // 4. Array (Tableau): Un tableau est une structure de données qui peut contenir une liste d'éléments. Les éléments d'un tableau peuvent être de n'importe quel type de données, y compris d'autres tableaux ou objets.
+
+            // 5. Asynchrone: Le terme asynchrone fait référence à la capacité d'exécuter du code sans bloquer le thread principal. En JavaScript, cela est souvent réalisé à l'aide de fonctions de rappel (callbacks), de promesses (promises) ou de la syntaxe async/await.
+
+            // 6. Scope (Portée): Le scope fait référence à la portée dans laquelle les variables et les fonctions sont accessibles. En JavaScript, il existe différents types de scope, tels que le scope global, le scope local (fonction) et le scope de bloc (introduit avec let et const).
+
+            // 7. Closure (Fermeture): Une closure est une fonction qui a accès aux variables d'une portée extérieure même après que cette portée ait été exécutée. Les closures sont souvent utilisées pour créer des fonctions privées ou pour maintenir un état entre les appels de fonction.
+
+            // 8. Prototype: Le prototype est un mécanisme par lequel les objets en JavaScript peuvent hériter des propriétés et des méthodes d'autres objets. Chaque objet a une propriété interne appelée [[Prototype]] qui pointe vers un autre objet, formant ainsi une chaîne de prototypes.
+
+            // 9. Synchronous vs Asynchronous: Le code synchrone s'exécute de manière séquentielle, tandis que le code asynchrone permet d'exécuter des opérations sans bloquer le thread principal, ce qui est crucial pour les opérations de longue durée comme les requêtes réseau ou les opérations de fichiers.
+
+            // 10. Event Loop (Boucle d'événements): La boucle d'événements est un mécanisme qui permet à JavaScript de gérer les opérations asynchrones. Elle surveille la pile d'exécution et la file d'attente des événements, permettant au code asynchrone de s'exécuter lorsque le thread principal est libre.
+
+            // 11. Hoisting: Le hoisting est un comportement de JavaScript où les déclarations de variables et de fonctions sont déplacées en haut de leur scope avant l'exécution du code. Cela signifie que vous pouvez utiliser des variables et des fonctions avant de les déclarer dans le code.
+
+            // 12. Event (Événement): Un événement est une action ou une occurrence qui se produit dans le système, comme un clic de souris, une pression sur une touche, ou la fin d'une requête réseau. JavaScript permet de gérer les événements à l'aide de gestionnaires d'événements (event handlers) pour réagir à ces actions.
+
+            // 13. Callback (Fonction de rappel): Un callback est une fonction qui est passée en argument à une autre fonction et qui est exécutée après que l'opération asynchrone soit terminée. Les callbacks sont couramment utilisés pour gérer les opérations asynchrones en JavaScript.
+
+            // 14. Promise (Promesse): Une promesse est un objet qui représente la réussite ou l'échec d'une opération asynchrone. Les promesses permettent de gérer les opérations asynchrones de manière plus structurée et lisible que les callbacks, en utilisant des méthodes comme .then() et .catch().
+
+            // 15. Async/Await: Async/await est une syntaxe introduite dans ES2017 qui permet d'écrire du code asynchrone de manière plus lisible et structurée. La fonction async indique que la fonction est asynchrone, tandis que le mot-clé await permet d'attendre la résolution d'une promesse avant de continuer l'exécution du code.
+
+            // 16. Module: Un module est un morceau de code JavaScript qui est encapsulé et peut être importé ou exporté pour être utilisé dans d'autres parties de l'application. Les modules permettent de structurer le code de manière plus organisée et de favoriser la réutilisation.
+
+            // 17. Callstack (Pile d'appels): La callstack est une structure de données qui suit l'exécution des fonctions dans un programme. Lorsqu'une fonction est appelée, elle est ajoutée à la pile d'appels, et lorsqu'elle se termine, elle est retirée de la pile. La callstack est essentielle pour comprendre le flux d'exécution du code et pour le débogage.
+
+            // 18. Garbage Collection (Collecte des déchets): La garbage collection est un processus automatique de gestion de la mémoire en JavaScript. Elle libère la mémoire occupée par les objets qui ne sont plus accessibles ou utilisés dans le programme, aidant ainsi à prévenir les fuites de mémoire et à optimiser les performances.
+
+            // 19. Environnement d'exécution: L'environnement d'exécution fait référence au contexte dans lequel le code JavaScript est exécuté. Cela peut être un navigateur web, un serveur Node.js, ou tout autre environnement qui prend en charge JavaScript. Chaque environnement d'exécution a ses propres caractéristiques et API disponibles.
+
+            // 20. Environnment lexical: L'environnement lexical fait référence à la portée dans laquelle les variables et les fonctions sont définies. Il est déterminé par la structure du code et les blocs de code, tels que les fonctions et les boucles. L'environnement lexical est crucial pour comprendre comment les variables sont accessibles et comment les closures fonctionnent en JavaScript.
+
+            // 21. Event Bubbling (Propagation des événements): L'event bubbling est un mécanisme de propagation des événements dans le DOM (Document Object Model) où un événement déclenché sur un élément enfant se propage vers ses éléments parents. Cela permet aux développeurs de gérer les événements de manière plus efficace en attachant des gestionnaires d'événements à des éléments parents plutôt qu'à chaque élément enfant individuellement.
+
+            // 22. Event Capturing (Capture des événements): L'event capturing est un autre mécanisme de propagation des événements dans le DOM où un événement déclenché sur un élément enfant est capturé par ses éléments parents avant d'atteindre l'élément cible. Cela permet aux développeurs de gérer les événements à différents niveaux de la hiérarchie du DOM.
+
+            // 23. Signature (Signature): En programmation, la signature d'une fonction fait référence à la liste de ses paramètres et à leur ordre. La signature est importante pour comprendre comment appeler une fonction correctement et pour éviter les erreurs de type ou de nombre d'arguments.
+
+            // 24. DOM (Document Object Model): Le DOM est une interface de programmation pour les documents HTML et XML. Il représente la structure d'un document sous forme d'arbre, où chaque nœud correspond à un élément du document. Le DOM permet aux développeurs de manipuler le contenu, la structure et le style des pages web de manière dynamique à l'aide de JavaScript.
+
+            // 25. Conditionnelle: Une conditionnelle est une structure de contrôle qui permet d'exécuter du code en fonction de certaines conditions. En JavaScript, les structures conditionnelles courantes incluent if, else if, else, et switch. Elles permettent de prendre des décisions dans le code et d'exécuter différentes sections de code en fonction des valeurs des variables ou des expressions.
+
+            // 26. Loop (Boucle): Une boucle est une structure de contrôle qui permet de répéter un bloc de code tant qu'une condition est vraie. En JavaScript, les types de boucles courants incluent for, while, et do...while. Les boucles sont utilisées pour itérer sur des collections de données, exécuter du code plusieurs fois, ou créer des structures répétitives.
+
+            // 27. API (Application Programming Interface): Une API est un ensemble de règles et de protocoles qui permettent à différentes applications ou services de communiquer entre eux. En JavaScript, les API sont souvent utilisées pour accéder à des fonctionnalités spécifiques du navigateur, comme le DOM, les événements, les requêtes réseau, etc.
+
+            // 28. JSON (JavaScript Object Notation): JSON est un format de données léger et facile à lire qui est utilisé pour échanger des données entre un client et un serveur. En JavaScript, JSON est souvent utilisé pour sérialiser des objets et des tableaux en chaînes de caractères, et pour les désérialiser en objets JavaScript.
+
+            // 29. Callback Hell (Enfer des callbacks): Le callback hell fait référence à une situation où les fonctions de rappel sont imbriquées de manière excessive, rendant le code difficile à lire et à maintenir. Cela peut se produire lorsque vous avez plusieurs opérations asynchrones qui dépendent les unes des autres, créant ainsi une structure de code en forme de pyramide.
+
+            // 30. Storage (Stockage): Le stockage fait référence aux mécanismes de stockage de données disponibles dans les navigateurs web, tels que `localStorage`, `sessionStorage`, et `cookies`. Ces mécanismes permettent aux développeurs de stocker des données côté client pour une utilisation ultérieure, comme les préférences de l'utilisateur, les sessions de connexion, etc.
+
+            // 31. POO (Programmation Orientée Objet): La programmation orientée objet est un paradigme de programmation qui utilise des objets pour modéliser des entités du monde réel. En JavaScript, la POO est réalisée à l'aide de fonctions constructrices, de classes (introduites dans ES6), et de prototypes. La POO permet de structurer le code de manière plus modulaire et réutilisable.
+
+            // 32. ES6 (ECMAScript 2015): ES6 est une version majeure de la spécification ECMAScript qui a introduit de nombreuses fonctionnalités et améliorations au langage JavaScript, telles que les classes, les modules, les fonctions fléchées, les promesses, les let et const, etc. ES6 a grandement amélioré la syntaxe et les capacités de JavaScript, rendant le langage plus puissant et plus facile à utiliser.
+
+            // 33. Tableau: Un tableau est une structure de données qui peut contenir une liste d'éléments. Les éléments d'un tableau peuvent être de n'importe quel type de données, y compris d'autres tableaux ou objets. Les tableaux sont utilisés pour stocker et manipuler des collections de données de manière efficace.
+
+            // 34. Type de données: Un type de données fait référence à la nature des données que vous manipulez dans votre code. En JavaScript, les types de données courants incluent les nombres, les chaînes de caractères, les booléens, les objets, les tableaux, les fonctions, etc. Comprendre les types de données est crucial pour écrire du code efficace et éviter les erreurs de type.
+
+            // 35. Object Literal (Littéral d'objet): Un objet littéral est une syntaxe pour créer des objets en JavaScript en utilisant des accolades {}. Les propriétés de l'objet sont définies à l'intérieur des accolades sous la forme de paires clé-valeur. Les objets littéraux sont une manière concise et facile de créer des objets sans avoir besoin de fonctions constructrices ou de classes.
+
+            // 36. Template Literals (Littéraux de gabarit): Les template literals sont une syntaxe introduite dans ES6 qui permet de créer des chaînes de caractères multi-lignes et d'inclure des expressions JavaScript à l'intérieur de ces chaînes. Ils sont définis en utilisant des backticks (`) au lieu de guillemets simples ou doubles, et les expressions sont incluses à l'aide de la syntaxe ${expression}.
+
+            // 37. Destructuring (Destructuration): La destructuration est une syntaxe introduite dans ES6 qui permet d'extraire des valeurs d'objets ou de tableaux et de les assigner à des variables de manière plus concise. Elle est particulièrement utile pour travailler avec des structures de données complexes et pour améliorer la lisibilité du code.
+
+            // 38. Spread Operator (Opérateur de propagation): L'opérateur de propagation est une syntaxe introduite dans ES6 qui permet d'étendre les éléments d'un tableau ou les propriétés d'un objet dans un autre tableau ou objet. Il est représenté par trois points (...) et est utilisé pour créer des copies de tableaux ou d'objets, fusionner des tableaux ou des objets, ou passer des éléments d'un tableau comme arguments à une fonction.
+
+            // 39. Rest Parameters (Paramètres rest): Les paramètres rest sont une syntaxe introduite dans ES6 qui permet de représenter un nombre indéfini d'arguments sous la forme d'un tableau. Ils sont définis en utilisant trois points (...) avant le nom du paramètre dans la déclaration de la fonction.
+
+            // 40. Chaines de caractères (Strings): Les chaînes de caractères sont des séquences de caractères utilisées pour représenter du texte. En JavaScript, les chaînes de caractères peuvent être définies en utilisant des guillemets simples ('), des guillemets doubles ("), ou des backticks (`) pour les template literals. Les chaînes de caractères sont utilisées pour stocker et manipuler du texte dans les applications JavaScript.
+
+            // 41. NaN (Not a Number): NaN est une valeur spéciale en JavaScript qui représente une valeur qui n'est pas un nombre valide. Il est souvent le résultat d'opérations mathématiques invalides, comme la division de zéro par zéro ou la conversion d'une chaîne de caractères non numérique en nombre.
+
+            // 42. Undefined: Undefined est une valeur spéciale en JavaScript qui indique qu'une variable a été déclarée mais n'a pas encore été assignée à une valeur. Il est également le résultat de l'accès à une propriété d'un objet qui n'existe pas ou de l'appel d'une fonction sans fournir tous les arguments requis.
+
+            // 43. Null: Null est une valeur spéciale en JavaScript qui représente l'absence intentionnelle de toute valeur ou objet. Il est souvent utilisé pour indiquer qu'une variable ou une propriété ne contient aucune valeur ou que l'objet n'existe pas.
+
+            // 44. Falsy et Truthy: En JavaScript, les valeurs falsy sont des valeurs qui sont considérées comme fausses lorsqu'elles sont évaluées dans un contexte booléen. Les valeurs falsy incluent `false, 0, "", null, undefined, et NaN`. Toutes les autres valeurs sont considérées comme truthy, ce qui signifie qu'elles sont évaluées comme vraies dans un contexte booléen.
+        </script>
+    </body>
+
+</html>

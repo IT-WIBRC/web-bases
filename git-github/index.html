@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Git et Github</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+
+            h1,
+            h2 {
+                color: #2e7a9e;
+            }
+
+            code {
+                background-color: #e8e7e7;
+                padding: 2px 4px;
+                border-radius: 4px;
+                font-style: italic;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            ul {
+                list-style-type: square;
+                margin-left: 20px;
+            }
+
+            img {
+                margin: 0 auto;
+                width: 50%;
+                display: block;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Git et Github</h1>
+        <p>Git est un système de contrôle de version distribué qui permet aux développeurs de suivre
+            les modifications apportées à leur code source au fil du temps. Github, quant à lui, est
+            une plateforme en ligne qui héberge des projets utilisant Git, facilitant la
+            collaboration entre les développeurs.</p>
+        <h2>Git</h2>
+        <p>Git a été créé par Linus Torvalds en 2005 pour gérer le développement du noyau Linux. Il
+            permet aux développeurs de travailler sur différentes branches de code, de fusionner les
+            modifications et de revenir à des versions précédentes si nécessaire.</p>
+        <h2>Github</h2>
+        <p>Github offre une interface conviviale pour héberger des projets Git. Il permet aux
+            développeurs de collaborer sur des projets open source, de suivre les problèmes (issues)
+            et de gérer les demandes de tirage (pull requests) pour intégrer les modifications
+            proposées par d'autres contributeurs.</p>
+
+        <hr>
+
+        <h2>Commandes Git et explication </h2>
+        <ul>
+            <li><code>git init</code>: Initialise un nouveau dépôt Git dans le répertoire actuel.
+            </li>
+            <li><code>git clone [url]</code>: Clone un dépôt distant à partir de l'URL spécifiée.
+            </li>
+            <li><code>git add [fichier]</code>: Ajoute un fichier spécifique à l'index pour le
+                prochain commit.</li>
+            <li><code>git commit -m "message"</code>: Enregistre les modifications ajoutées à
+                l'index avec un message descriptif.</li>
+            <li><code>git push</code>: Envoie les commits locaux vers le dépôt distant.</li>
+            <li><code>git pull</code>: Récupère les modifications du dépôt distant et les fusionne
+                avec la branche locale.</li>
+            <li><code>git branch</code>: Affiche la liste des branches dans le dépôt.</li>
+            <li><code>git checkout [branche]</code>: Change de branche pour travailler sur une autre
+                version du code.</li>
+            <li><code>git merge [branche]</code>: Fusionne la branche spécifiée dans la branche
+                actuelle.</li>
+            <li><code>git status</code>: Affiche l'état actuel du dépôt, y compris les fichiers
+                modifiés, ajoutés ou supprimés.</li>
+            <li><code>git log</code>: Affiche l'historique des commits dans le dépôt.</li>
+            <li><code>git diff</code>: Affiche les différences entre les fichiers modifiés et leur
+                version précédente.</li>
+            <li><code>git reset [commit]</code>: Réinitialise l'état du dépôt à un commit
+                spécifique, en supprimant les commits ultérieurs.</li>
+            <li><code>git stash</code>: Met de côté les modifications en cours pour les appliquer
+                plus tard, permettant de travailler sur une autre branche sans perdre les
+                modifications en cours.</li>
+            <li><code>git remote</code>: Gère les dépôts distants associés au dépôt local.</li>
+            <li><code>git fetch</code>: Récupère les modifications du dépôt distant sans les
+                fusionner avec la branche locale.</li>
+        </ul>
+
+        <h2>Cas 1: Le depot existe deja en ligne (tu viens de rejoindre une equipe de developpeurs)
+            et comment faire</h2>
+        <p>Si le dépôt existe déjà en ligne, vous pouvez le cloner sur votre machine locale en
+            utilisant
+            la commande <code>git clone [url]</code>. Ensuite, vous pouvez créer une nouvelle
+            branche
+            pour travailler sur vos modifications, ajouter vos changements à l'index avec
+            <code>git add</code>, committer vos modifications avec <code>git commit</code>, et
+            enfin pousser vos changements vers le dépôt distant avec <code>git push</code>.
+        </p>
+
+
+        <h2>Cas 2: Le depot n'existe pas encore en ligne (tu es le premier a creer le projet) et
+            comment faire</h2>
+        <p>Si le dépôt n'existe pas encore en ligne, vous pouvez initialiser un nouveau dépôt Git
+            dans votre répertoire de projet local en utilisant la commande <code>git init</code>.
+            Ensuite, vous pouvez ajouter vos fichiers au dépôt avec <code>git add</code>,
+            committer vos modifications avec <code>git commit -m "message"</code>, et enfin créer un
+            dépôt
+            distant sur Github, creer un origin avec <code>git remote add origin [url]</code>, et
+            pousser vos changements vers le dépôt distant avec
+            <code>git push -u origin master</code>.
+        </p>
+
+        <h2>Image representant le processus</h2>
+        <img src="./git-workflow.png" alt="Git workflow" />
+    </body>
+
+</html>

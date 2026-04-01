@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fonctions en JS</title>
+    </head>
+
+    <body>
+        <script>
+            // Les fonctions sont des blocs de code réutilisables qui effectuent une tâche spécifique. Elles peuvent prendre des paramètres et retourner des valeurs. En simple termes, une fonction est un ensemble d'instructions regroupées pour accomplir une tâche particulière. Elles permettent de structurer le code, de le rendre plus lisible et de favoriser la réutilisation.
+
+            // En JavaScript, il existe plusieurs façons de déclarer des fonctions, notamment les fonctions déclarées, les expressions de fonction, les fonctions fléchées, etc. Voici quelques exemples pour illustrer ces concepts:
+
+            // Arguments vs Paramètres: Les paramètres sont les variables définies dans la déclaration de la fonction, tandis que les arguments sont les valeurs réelles passées à la fonction lors de son appel. Par exemple, dans la fonction 'saluer', 'nom' est un paramètre, et lorsque nous appelons 'saluer("Alice")', "Alice" est l'argument passé à la fonction.
+
+            // Déclaration d'une fonction
+            function saluer(nom) {
+                // Ici, 'nom' est un paramètre de la fonction qui peut être utilisé à l'intérieur de celle-ci pour effectuer des opérations ou construire des messages.
+                return `Bonjour, ${nom}!`; // Utilisation de template literals pour construire la chaîne de caractères de salutation
+            }
+
+            // Appel de la fonction: Elle exécute le code à l'intérieur de la fonction en utilisant les arguments fournis et retourne le résultat.
+            console.log(saluer("Alice")); // Affiche: Bonjour, Alice!
+
+            // Une fonction peut ne pas retourner de valeur, dans ce cas, elle effectuera simplement une action sans fournir de résultat à l'appelant. Par exemple:
+            function afficherMessage(message) {
+                console.log(message); // Affiche le message dans la console, mais ne retourne rien à l'appelant.
+            }
+
+            // Fonctions anonymes et expressions de fonction: ces fonctions n'ont pas de nom et sont souvent utilisées comme valeurs de variables ou comme arguments pour d'autres fonctions.
+            const additionner = function (a, b) {
+                return a + b; // le mot-clé 'return' est utilisé pour renvoyer une valeur à l'endroit où la fonction a été appelée. Si aucune valeur n'est retournée, la fonction renverra 'undefined' par défaut.
+            };
+
+            console.log(additionner(5, 3)); // Affiche: 8
+
+            // Fonctions fléchées (Arrow functions)
+            const multiplier = (x, y) => x * y; // Les fonctions fléchées offrent une syntaxe plus concise pour écrire des fonctions. Elles sont particulièrement utiles pour les fonctions anonymes et les fonctions de rappel (callbacks). Elles ne possèdent pas leur propre contexte 'this', ce qui peut être avantageux dans certaines situations. Pas besoin de mot-clé 'function' ni de 'return' pour les fonctions à une seule expression.
+
+            console.log(multiplier(4, 6)); // Affiche: 24
+
+            // Fonctions avec des paramètres par défaut: les paramètres par défaut permettent de spécifier une valeur par défaut pour un paramètre si aucun argument n'est fourni lors de l'appel de la fonction.
+            function exponentier(base, exposant = 2) {
+                return Math.pow(base, exposant);
+            }
+            console.log(exponentier(5)); // Affiche: 25 (5 au carré)
+            console.log(exponentier(5, 3)); // Affiche: 125 (5 au cube)
+
+            // Fonctions récursives: une fonction qui s'appelle elle-même
+            function factorielle(n) {
+                if (n === 0) {
+                    return 1;
+                }
+                return n * factorielle(n - 1);
+            }
+            console.log(factorielle(5)); // Affiche: 120 (5!)
+
+            // Fonctions d'ordre supérieur: ce sont des fonctions qui prennent d'autres fonctions en argument ou qui retournent une fonction. Elles sont couramment utilisées pour les opérations de manipulation de tableaux, les callbacks, etc.
+            function appliquerOperation(a, b, operation) {
+                return operation(a, b);
+            }
+            console.log(appliquerOperation(10, 5, additionner)); // Affiche: 15
+            console.log(appliquerOperation(10, 5, multiplier)); // Affiche: 50
+
+            // Fonctions auto-invoquées (IIFE): ces fonctions sont définies et exécutées immédiatement après leur création. Elles sont souvent utilisées pour créer un scope local et éviter les conflits de variables dans le scope global.
+            (function () {
+                console.log("Cette fonction s'exécute immédiatement!");
+            })();
+
+            /* En résumé, les fonctions sont des éléments fondamentaux en JavaScript qui permettent de structurer le code, de le rendre plus modulaire et de favoriser la réutilisation. Elles peuvent être déclarées de différentes manières et peuvent prendre des paramètres, retourner des valeurs, et être utilisées dans une variété de contextes pour accomplir des tâches spécifiques.
+            */
+        </script>
+    </body>
+
+</html>

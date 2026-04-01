@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer en Javascript (setInterval, setTimeOut)</title>
   </head>
+
   <body>
     <script>
       /*
-        Permet d'executer une instruction apres une certaine duree. La duree est en millisecond (1000 ==> 1s)
+        Permet d'executer une fonction apres une certaine duree. La duree est en millisecond (1000 ==> 1s)
         * Cette function de meme que `setInterval` retourne un Id(identifiant) que l'on pourra utiliser pour annuler l'instruction
     */
+
+      // signature: setTimeout(function, duree)
       const timeOutId = setTimeout(function () {
         console.log("Bienvenue a Devia");
       }, 5000); // Ce code affichera `Bienvenu a Devia` apres 5 secondes
@@ -24,10 +28,16 @@
         Permet d'executer une instruction apres un certain interval de temps.
         * Cette function de meme que `setTimeOut` retourne un Id que l'on pourra utiliser pour annuler l'instruction
     */
+      // Signature: setInterval(function, duree)
       setInterval(function () {
         console.log("Bienvenue");
       }, 3000); // Ceci affichera `Bienvenue` chaque 3 seconde
       //   clearInterval(); // Est utiliser pour annuler un evenement en setInterval
+
+      //ClearInterval et clearTimeOut sont des fonctions qui prennent en parametre l'identifiant de l'evenement a annuler et qui annulent cet evenement, empechant ainsi son execution future.
+
+      // En résumé, setTimeout et setInterval sont des fonctions essentielles pour la gestion du temps en JavaScript, permettant d'exécuter du code de manière différée ou répétée, tandis que clearTimeout et clearInterval offrent un moyen de contrôler et d'annuler ces événements temporels selon les besoins de l'application.
     </script>
   </body>
+
 </html>
