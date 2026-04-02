@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Utiliser le JS dans le HTML pour voir le resultat</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            pre {
+                background-color: #dbd8d8;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+
+            code {
+                background-color: #eaeaea;
+                padding: 2px 4px;
+                border-radius: 3px;
+            }
+
+            kbd {
+                background-color: #f0f0f0;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: "Courier New", Courier, monospace;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Utiliser le JS dans le HTML pour voir le resultat</h1>
+        <p>Il existe 02 manières d'inclure votre script JavaScript dans votre fichier HTML.</p>
+        <h2>1. En utilisant la balise <code>&lt;script&gt;</code> dans le HTML</h2>
+        <p>Vous pouvez inclure votre code JavaScript directement dans votre fichier HTML en
+            utilisant la balise <code>&lt;script&gt;</code>. Voici un exemple :</p>
+        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Utiliser le JS dans le HTML pour voir le resultat&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Utiliser le JS dans le HTML pour voir le resultat&lt;/h1&gt;
+        &lt;script&gt;
+            // Votre code JavaScript ici
+            console.log("Hello, World!");
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p>Dans cet exemple, le code JavaScript est inclus directement dans la balise
+            <code>&lt;script&gt;</code>. Lorsque vous ouvrez ce fichier HTML dans un navigateur, le
+            message "Hello, World!" sera affiché dans la console du navigateur. <span>Pour ouvrir la
+                console cote navigateur, appuyez sur <kbd>F12</kbd> ou
+                <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></span>
+        </p>
+        <h2>2. En utilisant un fichier JavaScript externe</h2>
+        <p>Vous pouvez également inclure votre code JavaScript dans un fichier séparé et le
+            référencer dans votre fichier HTML. Voici comment faire :</p>
+        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Utiliser le JS dans le HTML pour voir le resultat&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Utiliser le JS dans le HTML pour voir le resultat&lt;/h1&gt;
+        &lt;script src="script.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p>Dans cet exemple, le code JavaScript est placé dans un fichier séparé nommé
+            <code>script.js</code>. Vous devez créer ce fichier dans le même répertoire que votre
+            fichier HTML et y ajouter votre code JavaScript. Par exemple, le contenu de
+            <code>script.js</code> pourrait être :
+        </p>
+        <pre>// script.js
+console.log("Hello, World!");</pre>
+        <p>Lorsque vous ouvrez ce fichier HTML dans un navigateur, le message "Hello, World!" sera
+            également affiché dans la console du navigateur, tout comme dans le premier exemple.</p>
+
+
+        <script>
+        </script>
+    </body>
+
+</html>
