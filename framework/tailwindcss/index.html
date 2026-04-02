@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,77 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Importer la librarie tailwind css pour avoir access a ses classes predefinis. Note: ceci est a but de l'apprentissage et n'est pas a utiliser pour des application en production (https://tailwindcss.com/docs/installation/play-cdn)-->
     <!-- Ce qui est fait par default par tailwind css (semblable au reset css): https://tailwindcss.com/docs/preflight -->
+
+    <style>
+      /* Vous pouvez aussi ajouter vos propres styles css en plus de ceux de tailwind css */
+      .text-pretty {
+        color: #ff6347;
+        font-weight: bold;
+      }
+
+      /*
+        Le pattern de tailwind pour les styles liees au texte:
+
+        text-{color} : pour la couleur du texte
+        text-{size} : pour la taille du texte
+        text-{alignment} : pour l'alignement du texte
+        text-{decoration} : pour la decoration du texte (underline, line-through, etc.)
+        underline : pour souligner le texte
+        line-through : pour barrer le texte
+        no-underline : pour enlever la decoration du texte
+        uppercase : pour mettre le texte en majuscules
+        lowercase : pour mettre le texte en minuscules
+        capitalize : pour mettre la premiere lettre de chaque mot en majuscules
+        font-{weight} : pour la graisse du texte (font-bold, font-light, etc.)
+        font-{family} : pour la famille de police du texte (font-sans, font
+        italic : pour mettre le texte en italique
+        not-italic : pour enlever l'italique du texte
+
+        Vous pouvez aussi combiner les styles pour avoir un style plus complexe. Par exemple, pour avoir un texte rouge, de taille 2xl, centre et souligné, vous pouvez utiliser les classes suivantes: text-red-500 text-2xl text-center underline
+
+
+        Le pattern de tailwind pour les styles liees a la disposition (layout):
+
+        flex : pour activer le mode flexbox
+        justify-{alignment} : pour l'alignement horizontal des elements dans un conteneur flex (start, end, center, between, around)
+        items-{alignment} : pour lalignement vertical des elements dans un conteneur flex (start, end, center, stretch)
+
+        Le pattern de tailwind pour les styles liees au background:
+        bg-{color} : pour la couleur de fond
+
+
+        Le pattern de tailwind pour les styles liees a la bordure:
+
+        border : pour activer la bordure
+        border-{color} : pour la couleur de la bordure
+        border-{size} : pour la taille de la bordure (border-2, border-4, etc.)
+        rounded : pour activer les bordures arrondies
+        rounded-{size} : pour la taille des bordures arrondies (rounded-sm, rounded-lg, etc.)
+
+
+        Le pattern de tailwind pour les styles liees a l'espacement:
+
+        p-{size} : pour le padding (p-4, p-8, etc.)
+        m-{size} : pour la margin (m-4, m-8, etc.)
+        space-x-{size} : pour l'espacement horizontal entre les elements (space-x-4, space-x-8, etc.)
+        space-y-{size} : pour l'espacement vertical entre les elements (space-y-4, space-y-8, etc.)
+        divide-{color} : pour la couleur de la ligne de separation entre les elements (divide-gray-300, divide-red-500, etc.)
+        divide-{size} : pour la taille de la ligne de separation entre les elements (divide-2, divide-4, etc.)
+
+        Pour les pseudo-classes (hover, focus, etc.), vous pouvez les utiliser en les precedant du nom de la pseudo-classe. Par exemple, pour changer la couleur du texte au survol, vous pouvez utiliser la classe hover:text-red-500.
+
+        Pour les media queries, vous pouvez les utiliser en les precedant du nom de la media query. Par exemple, pour changer la taille du texte sur les ecrans de taille moyenne, vous pouvez utiliser la classe md:text-2xl. `sm` pour les petits ecrans, `lg` pour les grands ecrans, `xl` pour les tres grands ecrans, etc.
+
+        Pour les pseudo-elements, vous pouvez les utiliser en les precedant du nom du pseudo-element. Par exemple, pour ajouter du contenu avant un element, vous pouvez utiliser la classe before:content-['Hello'].
+
+        Pour les transitions, vous pouvez les utiliser en les precedant du nom de la transition. Par exemple, pour ajouter une transition de couleur au survol, vous pouvez utiliser la classe `transition-colors hover:text-red-500`. Et pour ajouter une transition de transformation au survol, vous pouvez utiliser la classe `transition-transform hover:scale-110`. Il y a aussi la classe `transition` qui ajoute une transition de base a tous les styles qui peuvent etre transitionnes. Aussi  `duration-{time}` pour la duree de la transition (duration-300, duration-500, etc.) et `ease-{timing-function}` pour la fonction de timing de la transition (ease-in, ease-out, etc.)
+
+
+        Pour les animations, vous pouvez les utiliser en les precedant du nom de l'animation. Par exemple, pour ajouter une animation de rotation, vous pouvez utiliser la classe `animate-spin`. Il y a aussi la classe `animate-pulse` pour une animation de pulsation et `animate-bounce` pour une animation de rebond.
+       */
+    </style>
   </head>
+
   <body class="bg-red-200">
     <!-- Les classes sont dependantes des proprietes css que vous utilisiez quand vous faites le css. Si tu veux modifier la couleur par examlples, tu cherche cela dans la documentation et tu selectionne le style que tu veux et dans le cas ou il n'y a pas, tu scrool et cherches comment definir le tien. -->
     <h1 class="text-3xl font-bold underline text-fuchsia-400">Hello world!</h1>
@@ -24,4 +95,5 @@
       <p>Text 4</p>
     </div>
   </body>
+
 </html>
