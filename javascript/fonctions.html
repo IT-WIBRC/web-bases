@@ -36,7 +36,7 @@
 
             console.log(additionner(5, 3)); // Affiche: 8
 
-            // Fonctions fléchées (Arrow functions)
+            // Fonctions fléchées (Arrow functions) { return x * y }
             const multiplier = (x, y) => x * y; // Les fonctions fléchées offrent une syntaxe plus concise pour écrire des fonctions. Elles sont particulièrement utiles pour les fonctions anonymes et les fonctions de rappel (callbacks). Elles ne possèdent pas leur propre contexte 'this', ce qui peut être avantageux dans certaines situations. Pas besoin de mot-clé 'function' ni de 'return' pour les fonctions à une seule expression.
 
             console.log(multiplier(4, 6)); // Affiche: 24
@@ -56,6 +56,14 @@
                 return n * factorielle(n - 1);
             }
             console.log(factorielle(5)); // Affiche: 120 (5!)
+            /*
+              5 * factoriel(4) -- 5 * 4 * 3 * 2 * 1 * 1
+              4 * factoriel(3) -- 4 * 3 * 2 * 1 * 1
+              3 * factoriel(2) -- 3 * 2 * 1 * 1
+              2 * factoriel(1) -- 2 * 1 * 1
+              1 * factoriel(0) -- 1 * 1
+              1
+            */
 
             // Fonctions d'ordre supérieur: ce sont des fonctions qui prennent d'autres fonctions en argument ou qui retournent une fonction. Elles sont couramment utilisées pour les opérations de manipulation de tableaux, les callbacks, etc.
             function appliquerOperation(a, b, operation) {
