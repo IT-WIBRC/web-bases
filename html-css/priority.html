@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Priorite en CSS</title>
+        <style>
+            /* Spécificité: 0,0,1 - Selection par la balise */
+            p {
+                color: blue;
+                font-size: 16px;
+            }
+
+            /* Spécificité: 0,1,0 - selection en utilisant les Class (gagne sur type) */
+            .highlight {
+                color: red;
+                font-weight: bold;
+            }
+
+            /* Spécificité: 1,0,0 - selection en utilisant l'ID (gagne sur class) */
+            #main-text {
+                color: green;
+                font-size: 18px;
+            }
+
+            /* Spécificité: 0,2,1 - Combinaison (div.container p) */
+            div.container p {
+                margin: 10px;
+                line-height: 1.6;
+            }
+
+            /* Spécificité: 0,1,1 - Class + balise */
+            p.special {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Sera vert (ID gagne) -->
+            <p id="main-text" class="highlight">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores dolorum
+                voluptate aspernatur ipsa nisi, adipisci, beatae harum veniam expedita
+                necessitatibus nesciunt officia! Ratione temporibus aliquam voluptatem sunt a
+                consequuntur voluptatibus?
+            </p>
+
+            <!-- Sera rouge (class gagne sur type) -->
+            <p class="highlight">
+                Deuxième paragraphe avec classe highlight.
+            </p>
+
+            <!-- Sera jaune avec fond (spécificité 0,1,1) -->
+            <p class="special">
+                Troisième paragraphe avec classe special.
+            </p>
+
+            <!-- Sera bleu (type seul) -->
+            <p>
+                Quatrième paragraphe sans classe ni ID.
+            </p>
+        </div>
+    </body>
+
+</html>
