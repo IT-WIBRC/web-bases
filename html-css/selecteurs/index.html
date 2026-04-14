@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Le Guide Ultime des Sélecteurs CSS</title>
+        <style>
+            /* ============================================================
+           1. LE SÉLECTEUR UNIVERSEL (*)
+           ------------------------------------------------------------
+           C'est le "Grand Nettoyage". Il cible TOUTES les balises de la page.
+           On l'utilise au tout début pour éviter les surprises de marges
+           par défaut que les navigateurs ajoutent (comme sur le <body> ou les <ul>).
+           ============================================================
+        */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                /* Indispensable : le padding ne fait plus grandir la boîte */
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 40px;
+                background-color: #f0f2f5;
+                color: #2d3436;
+            }
+
+            .container {
+                max-width: 900px;
+                margin: auto;
+                background: white;
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            /* ============================================================
+           2. LES SÉLECTEURS DE BASE (Le trio classique)
+           ------------------------------------------------------------
+           - Balise : Très général (tous les éléments du même nom).
+           - Classe : Réutilisable, idéal pour les composants.
+           - ID : Unique au monde, très puissant (gagne souvent les conflits).
+           ============================================================
+        */
+
+            /* Sélecteur de BALISE (Type) : Cible tous les <h2> de la page */
+            h2 {
+                color: #0984e3;
+                margin-top: 40px;
+                margin-bottom: 10px;
+                border-bottom: 2px solid #dfe6e9;
+            }
+
+            /* Sélecteur de CLASSE (.) : Cible les éléments ayant class="important"
+           On peut mettre cette classe sur plusieurs balises différentes. */
+            .important {
+                color: #d63031;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            /* Sélecteur d'ID (#) : Cible l'unique élément ayant id="titre-principal"
+           Attention : Il ne doit y avoir qu'UN SEUL id de ce nom par fichier HTML. */
+            #titre-principal {
+                text-align: center;
+                font-size: 2.5rem;
+                color: #2d3436;
+                margin-bottom: 30px;
+            }
+
+            /* ============================================================
+           3. LES SÉLECTEURS D'ATTRIBUTS [ ]
+           ------------------------------------------------------------
+           C'est la chirurgie esthétique du CSS. On cible l'élément non pas
+           par son nom, mais par ce qu'il "contient" comme information (ses attributs).
+           ============================================================
+        */
+
+            /* Cible TOUT élément qui possède l'attribut 'title' (peu importe sa valeur) */
+            [title] {
+                cursor: help;
+                border-bottom: 1px dashed #636e72;
+            }
+
+            /* Cible les <input> dont l'attribut type est EXACTEMENT "password" */
+            input[type="password"] {
+                border: 2px solid #fab1a0;
+                background-color: #fff5f5;
+                padding: 8px;
+                border-radius: 4px;
+            }
+
+            /* Cible les liens <a> dont le href commence par "https" (Liens sécurisés)
+           Le symbole ^ veut dire "Commence par" */
+            a[href^="https"] {
+                color: #00b894;
+                font-weight: bold;
+            }
+
+            /* Cible les liens <a> dont le href se termine par ".pdf"
+           Le symbole $ veut dire "Se termine par" */
+            a[href$=".pdf"]::before {
+                content: "📄 ";
+                /* Ajoute une petite icône devant le lien */
+            }
+
+            /* Cible les éléments dont l'attribut 'class' contient le mot 'btn'
+           Le symbole * veut dire "Contient n'importe où" */
+            [class*="btn"] {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .btn-blue {
+                background-color: #0984e3;
+                color: white;
+            }
+
+            /* ============================================================
+           4. EXPLICATIONS TECHNIQUES (Classes Spéciales)
+           ============================================================
+        */
+            code {
+                background: #dfe6e9;
+                padding: 2px 6px;
+                border-radius: 4px;
+                color: #d63031;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            .explication-box {
+                background: #f9f9f9;
+                border-left: 5px solid #0984e3;
+                padding: 15px;
+                margin: 15px 0;
+                font-size: 0.95rem;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h1 id="titre-principal">L'Art des Sélecteurs CSS</h1>
+
+            <div class="explication-box">
+                <strong>Note pédagogique :</strong> Ce fichier montre comment passer du général (le
+                sélecteur <code>*</code>) au très précis (les attributs). Plus un sélecteur est
+                précis, plus il est prioritaire.
+            </div>
+
+            <h2>1. Sélecteurs de Base</h2>
+            <p>Un paragraphe normal ciblé par la balise <code>p</code>.</p>
+            <p class="important">Un paragraphe avec la classe <code>.important</code>.</p>
+
+            <h2>2. Sélecteurs d'Attributs (La Précision)</h2>
+            <p>Les sélecteurs d'attributs permettent de styliser sans ajouter de classes partout
+                dans le HTML.</p>
+
+            <div class="explication-box">
+                <p><strong>Exemple de mot de passe :</strong> Le champ ci-dessous est rouge car il
+                    possède <code>type="password"</code>.</p>
+                <input type="password" placeholder="Votre code secret">
+            </div>
+
+            <div class="explication-box">
+                <p><strong>Exemple de liens intelligents :</strong></p>
+                <ul>
+                    <li><a href="https://google.com">Lien HTTPS (devient vert automatiquement)</a>
+                    </li>
+                    <li><a href="cv-etudiant.pdf">Mon CV (détecte le .pdf et ajoute une icône)</a>
+                    </li>
+                    <li><span title="C'est magique !">Survolez-moi pour voir l'aide</span></li>
+                </ul>
+            </div>
+
+            <h2>3. Sélecteur Universel <code>*</code></h2>
+            <p>Regardez le haut de cette page. Il n'y a pas d'espace blanc inutile entre le bord du
+                navigateur et le contenu. C'est grâce au <code>* { margin: 0; }</code> qui "reset"
+                le design.</p>
+
+            <a href="#" class="btn-blue">Bouton stylisé via [class*="btn"]</a>
+
+        </div>
+
+    </body>
+
+</html>

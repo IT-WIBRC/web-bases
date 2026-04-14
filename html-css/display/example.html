@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cours Flexbox : Maîtriser la largeur des enfants</title>
+        <style>
+            /* --- STYLE DU COURS --- */
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                line-height: 1.6;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f0f2f5;
+            }
+
+            .leçon-section {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                color: #2c3e50;
+                border-left: 5px solid #3498db;
+                padding-left: 10px;
+            }
+
+            /* --- STYLE FLEXBOX --- */
+
+            /* Le Parent : Il définit l'environnement Flex */
+            .flex-parent {
+                display: flex;
+                /* Active Flexbox */
+                background-color: #ecf0f1;
+                padding: 10px;
+                border: 2px solid #bdc3c7;
+
+                /* justify-content: contrôle l'alignement horizontal */
+                justify-content: flex-start;
+
+                /* flex-wrap: autorise le retour à la ligne si les enfants sont trop larges */
+                flex-wrap: wrap;
+            }
+
+            .enfant {
+                color: white;
+                padding: 20px;
+                text-align: center;
+                margin: 5px;
+                font-weight: bold;
+            }
+
+            /* MÉTHODE 1 : Largeur fixe avec 'width' */
+            .largeur-fixe {
+                background-color: #e67e22;
+                /* Orange */
+                width: 200px;
+                /* On impose 200px */
+                /* Note : Flexbox peut réduire cette taille si l'espace manque,
+               sauf si on ajoute flex-shrink: 0; */
+                flex-shrink: 0;
+            }
+
+            /* MÉTHODE 2 : Largeur en pourcentage */
+            .largeur-pourcentage {
+                background-color: #9b59b6;
+                /* Violet */
+                width: 30%;
+                /* Prend un tiers du parent environ */
+            }
+
+            /* MÉTHODE 3 : La propriété magique 'flex-basis' */
+            .flex-basis-style {
+                background-color: #2ecc71;
+                /* Vert */
+                /* flex: grow (grandir) | shrink (rétrécir) | basis (taille de base) */
+                flex: 0 0 150px;
+                /* Ici : ne grandit pas, ne rétrécit pas, fait 150px de large */
+            }
+
+            code {
+                background: #eee;
+                padding: 2px 5px;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Flexbox : Fixer la taille des éléments</h1>
+
+        <div class="leçon-section">
+            <h2>1. Utiliser <code>width</code> (La méthode classique)</h2>
+            <p>On peut donner une largeur fixe en pixels. Pour éviter que Flexbox ne "compresse"
+                l'élément quand il n'y a plus de place, on utilise souvent
+                <code>flex-shrink: 0;</code>.
+            </p>
+            <div class="flex-parent">
+                <div class="enfant largeur-fixe">200px fixe</div>
+                <div class="enfant largeur-fixe">200px fixe</div>
+            </div>
+        </div>
+
+        <div class="leçon-section">
+            <h2>2. Utiliser les pourcentages</h2>
+            <p>Idéal pour des colonnes responsives (ex: 30% pour avoir 3 colonnes).</p>
+            <div class="flex-parent">
+                <div class="enfant largeur-pourcentage">30%</div>
+                <div class="enfant largeur-pourcentage">30%</div>
+                <div class="enfant largeur-pourcentage">30%</div>
+            </div>
+        </div>
+
+        <div class="leçon-section">
+            <h2>3. Le trio gagnant : <code>flex: grow shrink basis</code></h2>
+            <p>C'est la méthode la plus "Flexbox". On définit une base (ex: 150px) et on dit si
+                l'objet a le droit de se déformer.</p>
+            <div class="flex-parent">
+                <div class="enfant flex-basis-style">Base 150px</div>
+                <div class="enfant flex-basis-style"
+                    style="flex: 1 0 150px; background-color: #34495e;">Base 150px + flex-grow
+                    (prend le reste)</div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

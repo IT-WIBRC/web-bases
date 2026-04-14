@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cours Complet : Le Secret du Display en CSS</title>
+        <style>
+            /* SECTION 1 : MISE EN PAGE DU COURS
+        */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.7;
+                color: #2c3e50;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 30px;
+                background-color: #f4f7f6;
+            }
+
+            h1 {
+                color: #2980b9;
+                text-align: center;
+                border-bottom: 4px solid #2980b9;
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: #d35400;
+                margin-top: 40px;
+                background: #fff3e0;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .explication {
+                background: #ffffff;
+                padding: 20px;
+                border-left: 6px solid #bdc3c7;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            /* SECTION 2 : LES STYLES DES DÉMONSTRATIONS
+        */
+            .container {
+                border: 3px dashed #7f8c8d;
+                padding: 15px;
+                background-color: #fdfdfd;
+                min-height: 50px;
+            }
+
+            .box {
+                color: white;
+                padding: 20px;
+                font-weight: bold;
+                text-align: center;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+            }
+
+            /* --- LE DISPLAY BLOCK --- */
+            /* Rappel : Il se comporte comme un "parpaing" (il prend toute la place) */
+            .block-element {
+                display: block;
+                background-color: #e74c3c;
+                /* Rouge */
+                margin-bottom: 10px;
+            }
+
+            /* --- LE DISPLAY INLINE --- */
+            /* Rappel : Il se comporte comme un "vêtement" (il ne prend que la place du corps) */
+            .inline-element {
+                display: inline;
+                background-color: #27ae60;
+                /* Vert */
+                /* Note : width et height ne fonctionneront pas ici ! */
+                width: 1000px;
+                height: 500px;
+            }
+
+            /* --- LE DISPLAY INLINE-BLOCK --- */
+            /* Rappel : Le meilleur compromis (côte à côte ET dimensions réglables) */
+            .inline-block-element {
+                display: inline-block;
+                background-color: #f1c40f;
+                /* Jaune */
+                color: #333;
+                width: 200px;
+                margin: 5px;
+            }
+
+            /* --- LE DISPLAY FLEX (MODERNE) --- */
+            /* On l'applique au PARENT pour contrôler les ENFANTS */
+            .flex-parent {
+                display: flex;
+                justify-content: space-around;
+                /* Aligne les enfants avec de l'espace autour */
+                background-color: #ecf0f1;
+            }
+
+            .flex-child {
+                background-color: #8e44ad;
+                /* Violet */
+                padding: 15px;
+                width: 100px;
+            }
+
+            code {
+                background: #eee;
+                padding: 3px 6px;
+                border-radius: 4px;
+                font-family: monospace;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Maîtriser CSS <code>display</code></h1>
+
+        <div class="explication">
+            <strong>Introduction :</strong> En HTML, chaque élément est une boîte. La propriété
+            <code>display</code> décide si cette boîte est "égoïste" (prend toute la ligne) ou
+            "sociable" (accepte des voisins).
+        </div>
+
+        <h2>1. Le mode "Block" (L'égoïste)</h2>
+        <p>Un élément en <code>block</code> commence toujours sur une nouvelle ligne et s'étire à
+            gauche et à droite autant qu'il peut.</p>
+        <div class="container">
+            <div class="block-element">Bloc n°1 (div)</div>
+            <div class="block-element">Bloc n°2 (div)</div>
+        </div>
+        <p><em>Exemples par défaut : <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>,
+                <code>&lt;p&gt;</code>, <code>&lt;section&gt;</code>.</em></p>
+
+        <h2>2. Le mode "Inline" (Le sociable limité)</h2>
+        <p>Les éléments <code>inline</code> se suivent comme les mots dans une phrase. <strong>Gros
+                piège :</strong> Ils ignorent les propriétés <code>width</code> (largeur) et
+            <code>height</code> (hauteur).
+        </p>
+        <div class="container">
+            <span class="inline-element">Je suis en ligne</span>
+            <span class="inline-element">Moi aussi</span>
+            <span class="inline-element">On ignore la largeur de 1000px du CSS !</span>
+        </div>
+        <p><em>Exemples par défaut : <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>,
+                <code>&lt;strong&gt;</code>.</em></p>
+
+        <h2>3. Le mode "Inline-Block" (Le sociable puissant)</h2>
+        <p>C'est comme l'Inline, mais il <strong>autorise</strong> l'utilisation de
+            <code>width</code> et <code>height</code>. Parfait pour faire des boutons ou des
+            vignettes de produits.
+        </p>
+        <div class="container">
+            <div class="inline-block-element">Vignette 1 (200px)</div>
+            <div class="inline-block-element">Vignette 2 (200px)</div>
+        </div>
+
+        <h2>4. Le mode "Flex" (Le chef d'orchestre)</h2>
+        <p>Ici, on ne change pas le display de l'élément lui-même, mais celui de son
+            <strong>PARENT</strong>. Cela permet d'aligner les enfants très facilement.
+        </p>
+        <div class="container flex-parent">
+            <div class="box flex-child">A</div>
+            <div class="box flex-child">B</div>
+            <div class="box flex-child">C</div>
+        </div>
+        <p><em>C'est la méthode recommandée aujourd'hui pour créer des barres de navigation ou des
+                mises en page complexes.</em></p>
+
+    </body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cours Magistral : Les Unités CSS</title>
+        <style>
+            /* 1. L'ÉLÉMENT RACINE (root)
+           Le navigateur lit ce fichier et applique une taille par défaut (souvent 16px).
+           Toutes les unités "rem" multiplieront cette valeur.
+        */
+            html {
+                font-size: 16px;
+                /* La base : 1rem = 16px */
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.8;
+                color: #2d3436;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 40px 20px;
+                background-color: #f1f2f6;
+            }
+
+            header {
+                text-align: center;
+                padding: 50px;
+                background: linear-gradient(135deg, #0984e3, #6c5ce7);
+                color: white;
+                border-radius: 15px;
+                margin-bottom: 40px;
+            }
+
+            .card {
+                background: white;
+                padding: 30px;
+                margin-bottom: 30px;
+                border-radius: 12px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 5px solid #0984e3;
+            }
+
+            h2 {
+                color: #2d3436;
+                margin-top: 0;
+            }
+
+            code {
+                background: #dfe6e9;
+                padding: 3px 7px;
+                border-radius: 4px;
+                color: #d63031;
+                font-weight: bold;
+            }
+
+            /* --- VISUALISATION DES UNITÉS --- */
+
+            .demo-container {
+                background: #f9f9f9;
+                border: 2px dashed #b2bec3;
+                padding: 15px;
+                margin: 15px 0;
+                position: relative;
+            }
+
+            /* PX : Absolu et rigide */
+            .box-px {
+                width: 300px;
+                background: #ff7675;
+                color: white;
+                padding: 10px;
+            }
+
+            /* % : Relatif au parent direct */
+            .box-percent {
+                width: 50%;
+                background: #55efc4;
+                padding: 10px;
+            }
+
+            /* REM : Relatif au HTML (16px * 2.5 = 40px) */
+            .box-rem {
+                font-size: 2.5rem;
+                background: #ffeaa7;
+                padding: 1rem;
+                display: inline-block;
+            }
+
+            /* CH : Largeur basée sur le caractère "0" */
+            .box-ch {
+                width: 45ch;
+                /* Longueur idéale de lecture */
+                background: #fab1a0;
+                padding: 10px;
+                border-left: 5px solid #e17055;
+            }
+
+            /* VW / VH : Relatif à la fenêtre entière */
+            .box-viewport {
+                width: 30vw;
+                /* 30% de la largeur écran */
+                height: 100px;
+                background: #a29bfe;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            /* PT : Unité typographique (Impression) */
+            .print-text {
+                font-size: 14pt;
+                color: #2d3436;
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            .badge {
+                display: inline-block;
+                padding: 2px 10px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .bg-fixed {
+                background: #fab1a0;
+            }
+
+            .bg-relat {
+                background: #81ecec;
+            }
+
+            @media print {
+                .card {
+                    box-shadow: none;
+                    border: 1px solid black;
+                }
+
+                .box-viewport {
+                    display: none;
+                }
+
+                /* On cache les trucs d'écran à l'impression */
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Encyclopédie des Unités CSS</h1>
+            <p>Comprendre la différence entre l'absolu, le relatif et le viewport.</p>
+        </header>
+
+        <div class="card">
+            <span class="badge bg-fixed">Absolu</span>
+            <h2>1. Le Pixel (<code>px</code>)</h2>
+            <p>Le pixel est l'unité de base historique. Un pixel correspond à un point sur votre
+                écran (en théorie).</p>
+            <div class="demo-container">
+                <div class="box-px">Largeur fixe : 300px</div>
+            </div>
+            <p><strong>Problème :</strong> Si vous zoomez ou changez d'appareil, 300px restent
+                300px. Ce n'est pas "flexible".</p>
+        </div>
+
+        <div class="card">
+            <span class="badge bg-relat">Relatif au Parent</span>
+            <h2>2. Le Pourcentage (<code>%</code>)</h2>
+            <p>Il dépend de la taille de l'élément qui le contient (le parent).</p>
+            <div class="demo-container">
+                <div class="box-percent">Largeur : 50% de mon parent</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge bg-relat">Relatif au Texte</span>
+            <h2>3. Le REM (Root EM) et le CH</h2>
+            <p>Le <code>rem</code> est basé sur la taille de police de <code>&lt;html&gt;</code>.
+                C'est l'unité reine de l'accessibilité.</p>
+            <div class="demo-container">
+                <div class="box-rem">Texte 2.5rem</div>
+            </div>
+            <p>Le <code>ch</code> calcule la largeur du caractère "0". Très utile pour limiter la
+                largeur des paragraphes.</p>
+            <div class="demo-container">
+                <div class="box-ch">Cette boîte fait 45 caractères de large (ch). C'est la largeur
+                    parfaite pour ne pas fatiguer l'œil lors de la lecture d'un article.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge bg-relat">Relatif à l'Écran</span>
+            <h2>4. Viewport Width/Height (<code>vw</code> / <code>vh</code>)</h2>
+            <p>Ces unités ignorent le parent. Elles regardent directement la fenêtre du navigateur
+                (Viewport).</p>
+            <div class="demo-container">
+                <div class="box-viewport">30vw (30% de l'écran)</div>
+            </div>
+            <p><em>Note :</em> <code>100vh</code> est la technique standard pour qu'une section
+                occupe toute la hauteur de l'écran de l'utilisateur.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge bg-fixed">Papier</span>
+            <h2>5. Le Point (<code>pt</code>)</h2>
+            <p>Unité destinée à l'impression physique. <code>1pt = 1/72 pouce</code>.</p>
+            <p class="print-text">Texte en 14pt (Regardez la différence en faisant CTRL+P pour
+                imprimer).</p>
+        </div>
+
+        <footer style="text-align: center; color: #636e72;">
+            <p>Cours de CSS - Support Étudiant v2.0</p>
+        </footer>
+
+    </body>
+
+</html>
